@@ -1,0 +1,1422 @@
+Student ID,Placement 1,Placement 2,Year
+S001,CH4020,PH4020,Junior
+S002,CH4020,PH3500,Junior
+S003,CH4020,PH4020,Junior
+S004,CH4020,PH4020,Junior
+S005,CH4020,,Junior
+S006,CH4020,PH4020,Junior
+S007,CH4020,PH4020,Junior
+S008,CH3500,PH3500,Junior
+S009,CH4020,PH4020,Junior
+S010,CH4020,PH3500,Junior
+S011,CH4020,PH3500,Junior
+S012,CH3500,PH3500,Junior
+S013,CH4020,PH4020,Junior
+S014,CH4020,PH4020,Junior
+S015,CH3500,PH3500,Junior
+S016,CH4020,PH4020,Junior
+S017,CH4020,PH4020,Junior
+S018,CH3500,PH3500,Junior
+S019,CH3500,PH4020,Junior
+S020,CH3500,PH3500,Junior
+S021,CH4020,PH4020,Junior
+S022,CH3500,PH3500,Junior
+S023,CH4020,PH4020,Junior
+S024,CH4020,PH3500,Junior
+S025,CH4020,PH3500,Junior
+S026,CH3500,PH3500,Junior
+S027,CH4020,PH4020,Junior
+S028,CH4020,PH4020,Junior
+S029,CH3500,PH3500,Junior
+S030,CH4020,PH3500,Junior
+S031,CH4020,PH4020,Junior
+S032,CH4020,PH3500,Junior
+S033,CH4020,PH3500,Junior
+S034,CH3500,PH3500,Junior
+S035,CH4020,PH3500,Junior
+S036,CH4020,PH4020,Junior
+S037,EXEMPT,PH4020,Junior
+S038,CH4120,PH4020,Junior
+S039,CH3500,PH4020,Junior
+S040,CH3500,PH3500,Junior
+S041,CH4020,PH4020,Junior
+S042,CH4020,PH3500,Junior
+S043,CH4020,PH4240,Junior
+S044,CH4020,PH4020,Junior
+S045,CH4020,PH4020,Junior
+S046,CH3500,PH3500,Junior
+S047,CH4120,PH4020,Junior
+S048,CH4020,PH3500,Junior
+S049,CH4020,PH4020,Junior
+S050,CH4020,PH4020,Junior
+S051,CH3500,PH3500,Junior
+S052,CH3500,PH3500,Junior
+S053,CH4020,PH4020,Junior
+S054,CH4020,PH4020,Junior
+S056,CH4020,PH3500,Junior
+S057,CH3500,PH3500,Junior
+S058,CH4020,PH4020,Junior
+S059,CH4020,PH3500,Junior
+S060,CH4020,PH4020,Junior
+S061,CH4120,PH4020,Junior
+S062,CH3500,PH4020,Junior
+S063,CH3500,PH3500,Junior
+S064,CH4020,PH3500,Junior
+S065,CH4120,PH4020,Junior
+S066,CH4020,PH3500,Junior
+S067,CH4020,PH3500,Junior
+S068,CH4020,PH4020,Junior
+S069,CH4020,PH3500,Junior
+S070,CH4020,PH4020,Junior
+S071,CH4020,PH3500,Junior
+S072,CH4020,PH4020,Junior
+S073,CH4020,PH4020,Junior
+S074,CH4020,PH4020,Junior
+S075,CH4020,PH4020,Junior
+S076,CH3500,PH4020,Junior
+S077,CH3500,PH3500,Junior
+S078,CH4020,PH3500,Junior
+S079,CH4020,PH3500,Junior
+S080,CH4020,PH4240,Junior
+S081,CH4020,PH4020,Junior
+S082,CH4020,PH3500,Junior
+S083,CH4020,PH4020,Junior
+S084,CH3500,PH3500,Junior
+S085,CH4020,PH3500,Junior
+S086,CH4020,PH3500,Junior
+S087,CH4020,PH3500,Junior
+S088,CH4020,PH4020,Junior
+S089,CH4020,PH3500,Junior
+S090,CH4020,PH3500,Junior
+S091,CH4020,PH3500,Junior
+S093,CH4020,PH3500,Junior
+S094,CH4020,PH3500,Junior
+S095,CH4020,PH3500,Junior
+S096,CH3500,PH3500,Junior
+S097,CH3500,PH3500,Junior
+S098,CH4020,PH4020,Junior
+S099,CH4020,PH3500,Junior
+S100,CH3500,PH3500,Junior
+S102,CH4020,PH4240,Junior
+S103,CH3500,PH3500,Junior
+S104,CH4020,PH3500,Junior
+S105,CH4020,PH4020,Junior
+S106,CH4120,PH4020,Junior
+S107,CH4020,PH3500,Junior
+S108,CH4020,PH3500,Junior
+S109,CH3500,PH3500,Junior
+S110,CH4020,PH4020,Junior
+S111,CH4020,PH4020,Junior
+S112,CH4020,PH4020,Junior
+S113,CH4020,PH4240,Junior
+S114,CH4020,PH4240,Junior
+S115,CH3500,PH3500,Junior
+S116,CH3500,,Junior
+S117,CH4020,PH3500,Junior
+S118,CH4020,PH4020,Junior
+S119,CH4020,PH3500,Junior
+S120,CH4020,PH4020,Junior
+S121,CH4020,PH4020,Junior
+S122,CH4020,PH4020,Junior
+S123,CH4020,PH3500,Junior
+S124,CH4020,PH4020,Junior
+S125,CH4020,PH4020,Junior
+S126,CH4120,PH3500,Junior
+S127,CH3500,PH3500,Junior
+S128,CH4120,PH4020,Junior
+S129,CH3500,PH4020,Junior
+S130,CH4020,PH4020,Junior
+S131,CH4020,PH4020,Junior
+S132,CH4020,PH4020,Junior
+S133,CH4120,PH4020,Junior
+S134,CH4020,PH4020,Junior
+S135,CH3500,PH3500,Junior
+S136,CH4020,PH4020,Junior
+S137,CH3500,PH4020,Junior
+S138,CH4020,PH4020,Junior
+S139,CH4120,PH4020,Junior
+S140,CH4020,PH4020,Junior
+S141,CH4020,Exempt,Junior
+S142,CH4020,PH3500,Junior
+S143,CH4020,PH3500,Junior
+S144,CH4020,PH4020,Junior
+S145,CH4120,PH4020,Junior
+S146,CH4020,PH3500,Junior
+S147,CH3500,PH3500,Junior
+S148,CH4020,PH4020,Junior
+S149,CH4020,PH4020,Junior
+S150,CH4020,PH4020,Junior
+S151,CH3500,PH4020,Junior
+S152,CH4020,PH4020,Junior
+S153,CH4020,PH4020,Junior
+S154,CH3500,PH3500,Junior
+S155,CH4020,PH4020,Junior
+S156,CH4020,PH4020,Junior
+S157,CH4020,PH4020,Junior
+S158,CH4020,PH4020,Junior
+S159,CH4020,PH4020,Junior
+S160,CH4120,PH3500,Junior
+S161,CH4020,PH3500,Junior
+S162,CH3500,PH3500,Junior
+S163,CH4020,PH4020,Junior
+S164,CH4020,PH4020,Junior
+S165,CH4020,PH3500,Junior
+S166,CH3500,PH3500,Junior
+S167,CH4020,PH4020,Junior
+S168,CH4020,PH3500,Junior
+S169,CH3500,PH4020,Junior
+S170,CH4020,PH4020,Junior
+S171,CH4120,PH4020,Junior
+S172,CH4020,PH4020,Junior
+S173,CH4020,PH4020,Junior
+S174,CH4020,PH3500,Junior
+S175,CH4020,PH4020,Junior
+S176,CH3500,PH4020,Junior
+S177,CH3500,PH4020,Junior
+S178,CH4120,PH4020,Junior
+S179,CH4020,PH4020,Junior
+S180,CH3500,PH3500,Junior
+S181,CH4020,PH3500,Junior
+S182,CH4020,PH4020,Junior
+S183,CH3500,PH4020,Junior
+S184,CH4020,PH4020,Junior
+S185,CH4020,PH4020,Junior
+S186,CH4020,PH4020,Junior
+S187,CH3500,PH3500,Junior
+S188,CH3500,PH4020,Junior
+S189,CH4020,,Junior
+S190,CH4020,PH4020,Junior
+S191,CH4020,PH4020,Junior
+S192,CH4020,PH4020,Junior
+S193,CH4020,PH3500,Junior
+S194,CH4120,PH4020,Junior
+S195,CH4020,PH4020,Junior
+S196,CH4020,PH4020,Junior
+S197,CH3500,PH3500,Junior
+S198,CH3500,PH3500,Junior
+S199,CH3500,PH3500,Junior
+S200,CH4020,PH4020,Junior
+S201,CH3500,PH3500,Junior
+S202,CH3500,PH3500,Junior
+S203,CH3500,PH3500,Junior
+S204,CH4020,PH4020,Junior
+S205,CH4020,PH4020,Junior
+S206,CH4020,PH3500,Junior
+S207,CH4020,PH3500,Junior
+S208,CH4020,PH4020,Junior
+S209,CH4020,PH4020,Junior
+S210,CH4020,PH4020,Junior
+S211,CH4020,PH4020,Junior
+S212,CH4020,PH4020,Junior
+S213,CH4020,PH4020,Junior
+S214,CH3500,,Junior
+S215,CH3500,PH3500,Junior
+S216,CH3500,PH3500,Junior
+S217,CH3500,PH3500,Junior
+S218,CH4020,PH4020,Junior
+S219,CH4120,PH3500,Junior
+S220,CH4020,PH3500,Junior
+S221,CH4020,PH4020,Junior
+S222,CH4020,PH4020,Junior
+S223,CH4020,PH4020,Junior
+S224,CH3500,PH4020,Junior
+S225,CH4020,PH3500,Junior
+S226,CH4020,PH3500,Junior
+S227,NO TEST,PH3500,Junior
+S228,CH3500,PH3500,Junior
+S229,CH4020,PH4020,Junior
+S230,CH4020,PH4020,Junior
+S231,CH3500,PH3500,Junior
+S232,CH3500,PH3500,Junior
+S233,CH4020,PH3500,Junior
+S234,CH4020,PH4020,Junior
+S235,CH4120,PH4240,Junior
+S236,CH3500,PH4020,Junior
+S237,CH4020,PH4020,Junior
+S238,CH3500,PH3500,Junior
+S239,CH4020,PH3500,Junior
+S240,CH3500,PH4020,Junior
+S241,CH4020,PH3500,Junior
+S242,CH4020,PH4020,Junior
+S243,CH4020,PH4020,Junior
+S244,CH4020,PH4020,Junior
+S245,CH4020,PH4020,Junior
+S246,CH4020,PH4020,Junior
+S247,CH4020,PH4020,Junior
+S248,CH4020,PH4020,Junior
+S249,CH3500,PH3500,Junior
+S250,CH4020,PH4020,Junior
+S251,CH4120,PH4020,Junior
+S252,CH4020,PH3500,Junior
+S253,CH4020,PH4020,Junior
+S254,CH4020,PH3500,Junior
+S255,CH4020,PH3500,Junior
+S256,CH4020,PH4020,Junior
+S257,CH3500,PH3500,Junior
+S258,CH4020,PH4020,Junior
+S259,CH4020,PH3500,Junior
+S260,CH4020,PH3500,Junior
+S261,CH3500,PH3500,Junior
+S262,CH3500,PH3500,Junior
+S263,CH4020,PH4020,Junior
+S265,NO TEST,PH3500,Junior
+S266,CH4020,PH4020,Junior
+S267,CH4020,PH4020,Junior
+S268,CH4020,PH4020,Junior
+S269,CH4020,PH3500,Junior
+S270,CH3500,PH4020,Junior
+S271,CH4020,PH3500,Junior
+S272,CH4020,PH3500,Junior
+S273,CH3500,PH4020,Junior
+S274,CH3500,PH3500,Junior
+S275,CH4020,PH4020,Junior
+S276,CH4020,PH4020,Junior
+S277,CH3500,PH3500,Junior
+S278,EXEMPT,PH4020,Junior
+S279,CH4020,PH3500,Junior
+S280,CH4020,PH4020,Junior
+S281,CH4020,PH4240,Junior
+S283,CH3500,PH3500,Junior
+S284,CH3500,PH3500,Junior
+S285,CH3500,PH4020,Junior
+S286,CH4120,PH4020,Junior
+S287,CH4020,PH4020,Junior
+S288,CH4020,PH3500,Junior
+S289,CH3500,PH3500,Junior
+S290,CH4020,PH4020,Junior
+S291,CH3500,PH3500,Junior
+S292,NO TEST,PH3500,Junior
+S293,CH3500,PH3500,Junior
+S294,CH3500,PH3500,Junior
+S295,CH4120,PH4020,Junior
+S296,CH4020,PH4020,Junior
+S297,CH4020,PH4020,Junior
+S298,CH4020,PH4020,Junior
+S299,CH4020,PH4020,Junior
+S300,CH4020,PH4020,Junior
+S301,CH4020,PH3500,Junior
+S302,CH4020,PH4020,Junior
+S303,CH3500,PH3500,Junior
+S304,CH4020,PH4020,Junior
+S305,CH3500,PH4020,Junior
+S306,CH4120,PH4020,Junior
+S307,CH4020,PH3500,Junior
+S308,CH4020,PH4020,Junior
+S309,CH4020,PH3500,Junior
+S310,CH3500,PH3500,Junior
+S311,CH4020,PH3500,Junior
+S312,CH4020,PH4020,Junior
+S313,CH4020,PH3500,Junior
+S314,CH4120,PH4020,Junior
+S315,CH4020,PH4020,Junior
+S316,CH3500,PH3500,Junior
+S317,CH3500,PH3500,Junior
+S318,CH3500,PH3500,Junior
+S319,CH4020,PH4020,Junior
+S320,CH3500,PH3500,Junior
+S321,CH4020,PH4240,Junior
+S322,CH3500,PH3500,Junior
+S323,CH4020,PH3500,Junior
+S324,CH3500,PH3500,Junior
+S325,CH4020,PH4020,Junior
+S326,CH4020,PH4020,Junior
+S327,CH4020,PH4020,Junior
+S328,CH4120,PH4020,Junior
+S330,CH3500,PH3500,Junior
+S331,CH4020,PH4020,Junior
+S332,CH4020,PH4240,Junior
+S333,CH4020,PH4020,Junior
+S334,CH4020,PH3500,Junior
+S335,CH4020,PH3500,Junior
+S336,CH4020,PH4020,Junior
+S337,CH4020,PH4020,Junior
+S338,CH4020,PH4020,Junior
+S339,CH4020,PH4020,Junior
+S340,CH4020,PH4020,Junior
+S341,CH3500,PH3500,Junior
+S342,CH4020,PH3500,Junior
+S343,CH4020,PH4020,Junior
+S344,CH4020,PH3500,Junior
+S345,CH4020,,Junior
+S346,CH4020,PH4020,Junior
+S347,CH3500,PH3500,Junior
+S348,CH3500,PH3500,Junior
+S349,CH3500,PH3500,Junior
+S350,CH4020,PH3500,Junior
+S351,CH3500,PH3500,Junior
+S352,CH4020,PH3500,Senior
+S353,CH4020,PH4020,Senior
+S354,CH3500,PH3500,Senior
+S355,CH4120,PH4020,Senior
+S356,CH4020,PH4020,Senior
+S357,CH4020,PH4020,Senior
+S358,CH3500,PH3500,Senior
+S359,CH4020,PH4020,Senior
+S360,CH3500,PH4020,Senior
+S361,CH4020,PH4020,Senior
+S362,CH4020,PH3500,Senior
+S363,CH4020,PH4020,Senior
+S364,CH3500,PH3500,Senior
+S365,CH3500,PH3500,Senior
+S366,EXEMPT,PH4020,Senior
+S367,EXEMPT,PH4020,Senior
+S368,CH4020,PH4020,Senior
+S369,CH4020,PH4020,Senior
+S370,CH4020,PH4020,Senior
+S371,CH3500,PH3500,Senior
+S372,CH4020,PH4020,Senior
+S373,CH4020,PH4020,Senior
+S374,EXEMPT,PH4020,Senior
+S375,CH4020,PH4020,Senior
+S376,CH4020,PH4020,Senior
+S377,CH3500,PH4020,Senior
+S378,CH3500,PH3500,Senior
+S379,CH4020,PH4020,Senior
+S380,CH3500,PH3500,Senior
+S381,CH4020,PH4020,Senior
+S382,CH4020,PH4020,Senior
+S383,CH3500,PH4020,Senior
+S384,CH4020,PH4020,Senior
+S385,CH4020,PH4020,Senior
+S386,CH4020,PH3500,Senior
+S387,CH3500,PH3500,Senior
+S388,CH4020,PH3500,Senior
+S389,CH4020,PH4020,Senior
+S390,CH3500,PH3500,Senior
+S391,CH3500,PH4020,Senior
+S392,CH4020,PH4020,Senior
+S393,CH4020,PH3500,Senior
+S394,CH3500,PH3500,Senior
+S395,CH3500,PH3500,Senior
+S396,CH4020,PH4020,Senior
+S397,CH4020,PH3500,Senior
+S398,CH4020,PH4020,Senior
+S399,CH4020,PH4020,Senior
+S400,CH4020,PH3500,Senior
+S401,CH3500,PH4020,Senior
+S402,CH4020,PH3500,Senior
+S403,CH4020,PH4020,Senior
+S404,CH4020,PH4020,Senior
+S405,CH4020,PH3500,Senior
+S406,CH3500,PH4020,Senior
+S407,CH4020,PH4020,Senior
+S408,CH3500,PH3500,Senior
+S409,CH4020,PH4020,Senior
+S411,CH4020,PH4020,Senior
+S412,CH3500,PH3500,Senior
+S413,CH4020,PH4020,Senior
+S414,CH4020,PH4020,Senior
+S415,CH4020,PH4020,Senior
+S416,CH4020,PH4020,Senior
+S417,CH4020,PH3500,Senior
+S418,CH4020,PH4020,Senior
+S419,CH3500,PH4020,Senior
+S420,CH4020,PH4020,Senior
+S421,CH4020,PH4020,Senior
+S422,CH3500,PH3500,Senior
+S423,CH4020,PH4020,Senior
+S424,CH4020,PH3500,Senior
+S425,CH3500,PH3500,Senior
+S426,CH3500,PH4020,Senior
+S427,CH4020,PH4020,Senior
+S428,CH3500,PH4020,Senior
+S429,CH3500,PH3500,Senior
+S430,CH4020,PH4020,Senior
+S431,CH3500,PH4020,Senior
+S432,CH3500,PH3500,Senior
+S433,CH3500,PH3500,Senior
+S434,CH3500,PH3500,Senior
+S435,CH3500,PH3500,Senior
+S436,CH4020,PH3500,Senior
+S437,CH4020,PH4020,Senior
+S438,CH4020,PH4020,Senior
+S439,CH4120,PH4020,Senior
+S440,CH4020,PH3500,Senior
+S441,CH4020,PH4020,Senior
+S442,CH3500,PH4020,Senior
+S443,CH4020,PH4020,Senior
+S444,EXEMPT,PH4240,Senior
+S445,CH4020,PH3500,Senior
+S446,CH4020,PH4020,Senior
+S447,CH3500,PH4020,Senior
+S448,CH4020,PH4020,Senior
+S449,CH4020,PH4020,Senior
+S450,CH3500,PH4020,Senior
+S451,CH4020,PH4020,Senior
+S452,CH4020,PH3500,Senior
+S453,CH3500,PH3500,Senior
+S454,CH4020,PH4020,Senior
+S455,CH4020,PH3500,Senior
+S456,CH4020,PH4020,Senior
+S457,CH3500,PH3500,Senior
+S458,CH4020,PH4020,Senior
+S459,CH4020,PH4020,Senior
+S460,CH3500,PH4020,Senior
+S461,CH3500,PH4020,Senior
+S462,CH4020,PH4020,Senior
+S463,CH4020,PH4020,Senior
+S464,CH4020,PH3500,Senior
+S465,CH4020,PH4020,Senior
+S466,CH4020,PH4020,Senior
+S467,CH3500,PH3500,Senior
+S468,CH4020,PH4020,Senior
+S469,CH3500,PH3500,Senior
+S470,CH3500,PH3500,Senior
+S471,CH4020,PH4020,Senior
+S472,CH3500,PH3500,Senior
+S473,CH3500,PH3500,Senior
+S474,CH4020,PH4020,Senior
+S475,CH4020,PH3500,Senior
+S476,CH3500,PH3500,Senior
+S477,CH4020,PH3500,Senior
+S478,CH4020,PH4020,Senior
+S479,CH4020,PH4020,Senior
+S480,CH3500,PH3500,Senior
+S481,CH4020,PH3500,Senior
+S482,CH4020,PH4020,Senior
+S483,CH4020,PH4020,Senior
+S484,CH4020,PH3500,Senior
+S486,CH4020,PH3500,Senior
+S488,CH4020,PH4020,Senior
+S489,CH4120,PH4020,Senior
+S490,CH4020,PH3500,Senior
+S491,CH3500,PH3500,Senior
+S492,CH4020,PH4020,Senior
+S493,CH3500,PH4020,Senior
+S494,CH4020,PH4020,Senior
+S495,EXEMPT,PH4020,Senior
+S496,CH4020,PH4020,Senior
+S497,CH3500,PH4020,Senior
+S498,CH4020,PH4020,Senior
+S499,CH4020,PH4020,Senior
+S500,CH3500,PH3500,Senior
+S501,CH4020,PH4020,Senior
+S502,CH3500,PH3500,Senior
+S503,CH3500,PH4020,Senior
+S504,CH4020,PH3500,Senior
+S505,CH3500,PH3500,Senior
+S506,CH4020,PH3500,Senior
+S507,CH4020,PH4020,Senior
+S508,CH4020,PH4020,Senior
+S509,CH4020,PH4020,Senior
+S510,CH4020,PH3500,Senior
+S511,CH4020,PH4020,Senior
+S512,CH4020,PH4020,Senior
+S513,CH4020,PH4020,Senior
+S514,CH4020,PH4020,Senior
+S515,CH3500,PH4020,Senior
+S516,CH4020,PH3500,Senior
+S517,CH4020,PH3500,Senior
+S518,CH4020,EXEMPT,Senior
+S519,CH4020,PH3500,Senior
+S520,CH4020,PH4020,Senior
+S521,CH4020,PH4240,Senior
+S522,CH4020,PH4020,Senior
+S523,CH4020,PH4020,Senior
+S524,CH4020,PH4020,Senior
+S525,CH4020,PH4020,Senior
+S526,CH4020,PH4020,Senior
+S527,CH3500,PH4020,Senior
+S528,CH3500,PH3500,Senior
+S529,CH3500,PH3500,Senior
+S531,CH3500,PH3500,Senior
+S532,CH4020,PH4020,Senior
+S533,CH3500,PH4020,Senior
+S535,CH3500,PH3500,Senior
+S536,CH4020,PH4020,Senior
+S537,CH4020,PH3500,Senior
+S538,CH4020,PH4020,Senior
+S539,CH3500,PH3500,Senior
+S540,CH4020,PH4020,Senior
+S541,CH3500,PH3500,Senior
+S542,CH3500,PH4020,Senior
+S543,CH4020,PH4020,Senior
+S544,CH4020,PH3500,Senior
+S545,CH4020,PH4020,Senior
+S546,CH4020,PH3500,Senior
+S547,CH4020,PH3500,Senior
+S548,CH4020,PH3500,Senior
+S549,CH4020,PH4020,Senior
+S550,CH4020,PH3500,Senior
+S551,CH3500,PH3500,Senior
+S552,CH4020,PH4020,Senior
+S553,CH4020,PH3500,Senior
+S554,CH4020,PH4020,Senior
+S555,CH3500,PH4020,Senior
+S556,CH4120,PH3500,Senior
+S557,CH3500,PH3500,Senior
+S558,CH4020,PH3500,Senior
+S559,CH3500,PH3500,Senior
+S560,CH3500,PH3500,Senior
+S561,CH3500,PH4020,Senior
+S562,CH3500,PH4020,Senior
+S563,CH4020,PH3500,Senior
+S564,CH4020,PH4020,Senior
+S565,CH3500,PH4020,Senior
+S566,CH4020,PH3500,Senior
+S567,CH3500,PH3500,Senior
+S568,CH4020,PH4020,Senior
+S569,CH4120,PH4020,Senior
+S570,CH3500,PH4020,Senior
+S571,CH3500,PH3500,Senior
+S572,CH4020,PH3500,Senior
+S573,CH4020,PH3500,Senior
+S574,CH4020,PH4020,Senior
+S575,CH3500,PH3500,Senior
+S576,CH3500,PH3500,Senior
+S577,CH3500,PH3500,Senior
+S578,CH3500,PH3500,Senior
+S579,CH3500,PH3500,Senior
+S580,CH3500,PH3500,Senior
+S581,CH3500,PH3500,Senior
+S582,CH4020,PH4020,Senior
+S583,CH3500,PH3500,Senior
+S584,CH4020,PH3500,Senior
+S585,CH4020,PH4020,Senior
+S586,CH3500,PH3500,Senior
+S587,CH4020,PH3500,Senior
+S588,CH4020,PH3500,Senior
+S589,CH4020,PH4020,Senior
+S590,CH4020,PH3500,Senior
+S591,CH4020,PH4020,Senior
+S592,CH4020,PH4020,Senior
+S593,CH3500,PH3500,Senior
+S594,CH4020,PH4020,Senior
+S595,CH4020,PH4020,Senior
+S596,CH4020,PH4020,Senior
+S597,CH3500,PH3500,Senior
+S599,CH4020,PH4020,Senior
+S600,CH4020,PH4020,Senior
+S601,CH4020,PH3500,Senior
+S602,CH4020,PH3500,Senior
+S603,CH3500,PH3500,Senior
+S604,CH4020,PH4020,Senior
+S605,CH4020,PH4020,Senior
+S606,CH4020,PH4020,Senior
+S607,CH4120,PH4020,Senior
+S608,CH4020,PH4020,Senior
+S609,CH4020,PH4020,Senior
+S610,CH4020,PH4020,Senior
+S611,CH4020,PH3500,Senior
+S612,CH4020,PH4020,Senior
+S613,CH4020,PH4020,Senior
+S614,CH4020,PH4020,Senior
+S615,CH3500,PH3500,Senior
+S616,CH4020,PH3500,Senior
+S617,CH4020,PH3500,Senior
+S618,CH4020,PH3500,Senior
+S619,CH3500,PH3500,Senior
+S620,CH4020,PH3500,Senior
+S621,CH3500,PH3500,Senior
+S622,CH3500,PH4020,Senior
+S623,CH4020,PH3500,Senior
+S624,CH4020,PH4020,Senior
+S625,CH4020,PH3500,Senior
+S626,CH4020,PH4020,Senior
+S627,CH4020,PH4020,Senior
+S628,CH4120,PH4020,Senior
+S629,CH4020,PH3500,Senior
+S630,CH4020,PH4020,Senior
+S631,CH3500,PH4020,Senior
+S632,CH4020,PH4020,Senior
+S633,EXEMPT,PH4020,Senior
+S634,CH3500,PH4020,Senior
+S635,CH4020,PH3500,Senior
+S636,CH3500,PH3500,Senior
+S637,CH4020,PH4020,Senior
+S638,CH4020,PH4020,Senior
+S639,CH3500,PH3500,Senior
+S640,CH4020,PH4020,Senior
+S641,CH4020,PH4020,Senior
+S642,CH4020,PH4020,Senior
+S643,CH4020,PH3500,Senior
+S644,CH4020,PH3500,Senior
+S645,CH4020,PH4020,Senior
+S646,CH3500,PH3500,Senior
+S647,CH4020,PH4020,Senior
+S648,CH4020,PH3500,Senior
+S649,CH4020,PH3500,Senior
+S650,CH4020,PH4020,Senior
+S651,CH4020,PH3500,Senior
+S652,CH4020,PH4020,Senior
+S653,CH4020,PH3500,Senior
+S654,CH4020,PH4020,Senior
+S655,CH4020,PH4020,Senior
+S656,CH4020,PH4020,Senior
+S657,CH4020,PH4020,Senior
+S658,CH4020,PH4020,Senior
+S659,CH3500,PH3500,Senior
+S660,CH4020,PH4020,Senior
+S661,CH4020,PH3500,Senior
+S662,CH4020,PH4020,Senior
+S663,CH4020,PH4240,Senior
+S664,CH4020,PH4020,Senior
+S665,CH3500,PH4020,Senior
+S666,CH4020,PH4020,Senior
+S667,CH4120,PH4020,Senior
+S668,CH4020,PH4020,Senior
+S669,CH4020,PH4020,Senior
+S670,CH3500,PH4020,Senior
+S671,CH4020,PH3500,Senior
+S672,CH3500,PH3500,Senior
+S673,CH4020,PH3500,Senior
+S001,MA4046 Calculus II,,Junior
+S002,MA4000 Precalculus,,Junior
+S003,MA4042 Calculus I,,Junior
+S004,MAxxxx Advanced Maths,,Junior
+S005,MA4042 Calculus I,,Junior
+S006,MAxxxx Advanced Maths,,Junior
+S007,MA4042 Calculus I,,Junior
+S008,MA4000 Precalculus,,Junior
+S009,MA4042 Calculus I,,Junior
+S010,MA4000 Precalculus,,Junior
+S011,MA4012 Calculus Ia,,Junior
+S012,MA4000 Precalculus,,Junior
+S013,MA4042 Calculus I,,Junior
+S014,MA4042 Calculus I,,Junior
+S015,MA4042 Calculus I,,Junior
+S016,MA4042 Calculus I,,Junior
+S017,MA4042 Calculus I,,Junior
+S018,MA4000 Precalculus,,Junior
+S019,MA4042 Calculus I,,Junior
+S020,MA4000 Precalculus,,Junior
+S021,MAxxxx Advanced Maths,,Junior
+S022,MA4000 Precalculus,,Junior
+S023,MA4042 Calculus I,,Junior
+S024,MA4000 Precalculus,,Junior
+S025,MA4042 Calculus I,,Junior
+S026,MA4000 Precalculus,,Junior
+S027,MA4046 Calculus II,,Junior
+S028,MA4000 Precalculus,,Junior
+S029,MA4000 Precalculus,,Junior
+S030,MA4000 Precalculus,,Junior
+S031,MA4042 Calculus I,,Junior
+S032,MA4000 Precalculus,,Junior
+S033,MA4012 Calculus Ia,,Junior
+S034,MA4000 Precalculus,,Junior
+S035,MA4012 Calculus Ia,,Junior
+S036,MA4042 Calculus I,,Junior
+S037,MAxxxx Advanced Maths,,Junior
+S038,MA4042 Calculus I,,Junior
+S039,MA4042 Calculus I,,Junior
+S040,MA4000 Precalculus,,Junior
+S041,MAxxxx Advanced Maths,,Junior
+S042,MA4000 Precalculus,,Junior
+S043,MAxxxx Advanced Maths,,Junior
+S044,MA4042 Calculus I,,Junior
+S045,MA4042 Calculus I,,Junior
+S046,MA4000 Precalculus,,Junior
+S047,MA4042 Calculus I,,Junior
+S048,MA4012 Calculus Ia,,Junior
+S049,MA4042 Calculus I,,Junior
+S050,MA4046 Calculus II,,Junior
+S051,MA4012 Calculus Ia,,Junior
+S052,MA4000 Precalculus,,Junior
+S053,MAxxxx Advanced Maths,,Junior
+S054,MA4046 Calculus II,,Junior
+S055,MA4000 Precalculus,,Junior
+S056,MA4012 Calculus Ia,,Junior
+S057,MA4000 Precalculus,,Junior
+S058,MA4042 Calculus I,,Junior
+S059,MA4012 Calculus Ia,,Junior
+S060,MA4046 Calculus II,,Junior
+S061,MAxxxx Advanced Maths,,Junior
+S062,MA4042 Calculus I,,Junior
+S063,MA4000 Precalculus,,Junior
+S064,MA4042 Calculus I,,Junior
+S065,MAxxxx Advanced Maths,,Junior
+S066,MA4042 Calculus I,,Junior
+S067,MA4012 Calculus Ia,,Junior
+S068,MA4042 Calculus I,,Junior
+S069,MA4042 Calculus I,,Junior
+S070,MA4042 Calculus I,,Junior
+S071,MA4000 Precalculus,,Junior
+S072,MA4042 Calculus I,,Junior
+S073,MA4042 Calculus I,,Junior
+S074,MA4042 Calculus I,,Junior
+S075,MA4042 Calculus I,,Junior
+S076,MA4042 Calculus I,,Junior
+S077,MA4000 Precalculus,,Junior
+S078,MA4000 Precalculus,,Junior
+S079,MA4000 Precalculus,,Junior
+S080,MAxxxx Advanced Maths,,Junior
+S081,MA4042 Calculus I,,Junior
+S082,MA4042 Calculus I,,Junior
+S083,MAxxxx Advanced Maths,,Junior
+S084,MA4000 Precalculus,,Junior
+S085,MA4000 Precalculus,,Junior
+S086,MA4000 Precalculus,,Junior
+S087,MA4000 Precalculus,,Junior
+S088,MA4042 Calculus I,,Junior
+S089,MA4000 Precalculus,,Junior
+S090,MA4042 Calculus I,,Junior
+S091,MA4000 Precalculus,,Junior
+S093,MA4000 Precalculus,,Junior
+S094,MA4012 Calculus Ia,,Junior
+S095,MA4000 Precalculus,,Junior
+S096,MA4000 Precalculus,,Junior
+S097,MA4000 Precalculus,,Junior
+S098,MA4042 Calculus I,,Junior
+S099,MA4000 Precalculus,,Junior
+S100,MA4000 Precalculus,,Junior
+S102,MAxxxx Advanced Maths,,Junior
+S103,MA4012 Calculus Ia,,Junior
+S104,MA4042 Calculus I,,Junior
+S105,MAxxxx Advanced Maths,,Junior
+S106,MA4042 Calculus I,,Junior
+S107,MA4042 Calculus I,,Junior
+S108,MA4000 Precalculus,,Junior
+S109,MA4000 Precalculus,,Junior
+S110,MAxxxx Advanced Maths,,Junior
+S111,MA4042 Calculus I,,Junior
+S112,MA4046 Calculus II,,Junior
+S113,MAxxxx Advanced Maths,,Junior
+S114,MAxxxx Advanced Maths,,Junior
+S115,MA4000 Precalculus,,Junior
+S116,MA4000 Precalculus,,Junior
+S117,MA4000 Precalculus,,Junior
+S118,MA4042 Calculus I,,Junior
+S119,MA4012 Calculus Ia,,Junior
+S120,MAxxxx Advanced Maths,,Junior
+S121,MA4042 Calculus I,,Junior
+S122,MA4000 Precalculus,,Junior
+S123,MA4012 Calculus Ia,,Junior
+S124,MAxxxx Advanced Maths,,Junior
+S125,MA4042 Calculus I,,Junior
+S126,MA4000 Precalculus,,Junior
+S127,MA4000 Precalculus,,Junior
+S128,MAxxxx Advanced Maths,,Junior
+S129,MA4042 Calculus I,,Junior
+S130,MAxxxx Advanced Maths,,Junior
+S131,MAxxxx Advanced Maths,,Junior
+S132,MA4042 Calculus I,,Junior
+S133,MAxxxx Advanced Maths,,Junior
+S134,MAxxxx Advanced Maths,,Junior
+S135,MA4042 Calculus I,,Junior
+S136,MAxxxx Advanced Maths,,Junior
+S137,MA4042 Calculus I,,Junior
+S138,MA4042 Calculus I,,Junior
+S139,MAxxxx Advanced Maths,,Junior
+S140,MA4042 Calculus I,,Junior
+S141,MAxxxx Advanced Maths,,Junior
+S142,MA4000 Precalculus,,Junior
+S143,MA4000 Precalculus,,Junior
+S144,MA4046 Calculus II,,Junior
+S145,MAxxxx Advanced Maths,,Junior
+S146,MA4000 Precalculus,,Junior
+S147,MA4000 Precalculus,,Junior
+S148,MA4042 Calculus I,,Junior
+S149,MA4042 Calculus I,,Junior
+S150,MA4042 Calculus I,,Junior
+S151,MA4042 Calculus I,,Junior
+S152,MA4042 Calculus I,,Junior
+S153,MA4042 Calculus I,,Junior
+S154,MA4000 Precalculus,,Junior
+S155,MAxxxx Advanced Maths,,Junior
+S156,MA4042 Calculus I,,Junior
+S157,MA4046 Calculus II,,Junior
+S158,MAxxxx Advanced Maths,,Junior
+S159,MAxxxx Advanced Maths,,Junior
+S160,MA4042 Calculus I,,Junior
+S161,MA4012 Calculus Ia,,Junior
+S162,MA4000 Precalculus,,Junior
+S163,MA4046 Calculus II,,Junior
+S164,MA4042 Calculus I,,Junior
+S165,MA4042 Calculus I,,Junior
+S166,MA4000 Precalculus,,Junior
+S167,MA4042 Calculus I,,Junior
+S168,MA4000 Precalculus,,Junior
+S169,MA4042 Calculus I,,Junior
+S170,MA4042 Calculus I,,Junior
+S171,MAxxxx Advanced Maths,,Junior
+S172,MAxxxx Advanced Maths,,Junior
+S173,MA4046 Calculus II,,Junior
+S174,MA4000 Precalculus,,Junior
+S175,MA4042 Calculus I,,Junior
+S176,MA4042 Calculus I,,Junior
+S177,MA4042 Calculus I,,Junior
+S178,MAxxxx Advanced Maths,,Junior
+S179,MAxxxx Advanced Maths,,Junior
+S180,MA4000 Precalculus,,Junior
+S181,MA4000 Precalculus,,Junior
+S182,MA4042 Calculus I,,Junior
+S183,MA4000 Precalculus,,Junior
+S184,MAxxxx Advanced Maths,,Junior
+S185,MA4042 Calculus I,,Junior
+S186,MAxxxx Advanced Maths,,Junior
+S187,MA4000 Precalculus,,Junior
+S188,MA4046 Calculus II,,Junior
+S189,MA4042 Calculus I,,Junior
+S190,MA4042 Calculus I,,Junior
+S191,MA4042 Calculus I,,Junior
+S192,MAxxxx Advanced Maths,,Junior
+S193,MA4000 Precalculus,,Junior
+S194,MA4042 Calculus I,,Junior
+S195,MA4042 Calculus I,,Junior
+S196,MA4046 Calculus II,,Junior
+S197,MA4000 Precalculus,,Junior
+S198,MA4000 Precalculus,,Junior
+S199,MA4000 Precalculus,,Junior
+S200,MA4042 Calculus I,,Junior
+S201,MA4000 Precalculus,,Junior
+S202,MA4000 Precalculus,,Junior
+S203,MA4000 Precalculus,,Junior
+S204,MA4046 Calculus II,,Junior
+S205,MA4042 Calculus I,,Junior
+S206,MA4000 Precalculus,,Junior
+S207,MA4042 Calculus I,,Junior
+S208,MA4042 Calculus I,,Junior
+S209,MAxxxx Advanced Maths,,Junior
+S210,MAxxxx Advanced Maths,,Junior
+S211,MA4046 Calculus II,,Junior
+S212,MA4042 Calculus I,,Junior
+S213,MA4042 Calculus I,,Junior
+S214,MA4012 Calculus Ia,,Junior
+S215,MA4000 Precalculus,,Junior
+S216,MA4042 Calculus I,,Junior
+S217,MA4000 Precalculus,,Junior
+S218,MA4042 Calculus I,,Junior
+S219,MA4000 Precalculus,,Junior
+S220,MA4000 Precalculus,,Junior
+S221,MA4042 Calculus I,,Junior
+S222,MA4042 Calculus I,,Junior
+S223,MA4046 Calculus II,,Junior
+S224,MA4042 Calculus I,,Junior
+S225,MA4042 Calculus I,,Junior
+S226,MA4000 Precalculus,,Junior
+S227,MA4000 Precalculus,,Junior
+S228,MA4000 Precalculus,,Junior
+S229,MA4042 Calculus I,,Junior
+S230,MA4000 Precalculus,,Junior
+S231,MA4000 Precalculus,,Junior
+S232,MA4000 Precalculus,,Junior
+S233,MA4000 Precalculus,,Junior
+S234,MA4042 Calculus I,,Junior
+S235,MAxxxx Advanced Maths,,Junior
+S236,MA4042 Calculus I,,Junior
+S237,MAxxxx Advanced Maths,,Junior
+S238,MA4042 Calculus I,,Junior
+S239,MA4000 Precalculus,,Junior
+S240,MAxxxx Advanced Maths,,Junior
+S241,MA4000 Precalculus,,Junior
+S242,MA4042 Calculus I,,Junior
+S243,MA4042 Calculus I,,Junior
+S244,MA4042 Calculus I,,Junior
+S245,MA4046 Calculus II,,Junior
+S246,MAxxxx Advanced Maths,,Junior
+S247,MA4042 Calculus I,,Junior
+S248,MAxxxx Advanced Maths,,Junior
+S249,MA4000 Precalculus,,Junior
+S250,MAxxxx Advanced Maths,,Junior
+S251,MA4042 Calculus I,,Junior
+S252,MA4042 Calculus I,,Junior
+S253,MA4042 Calculus I,,Junior
+S254,MA4042 Calculus I,,Junior
+S255,MA4042 Calculus I,,Junior
+S256,MA4042 Calculus I,,Junior
+S257,MA4000 Precalculus,,Junior
+S258,MA4042 Calculus I,,Junior
+S259,MA4012 Calculus Ia,,Junior
+S260,MA4042 Calculus I,,Junior
+S261,MA4000 Precalculus,,Junior
+S262,MA4042 Calculus I,,Junior
+S263,MAxxxx Advanced Maths,,Junior
+S265,MA4000 Precalculus,,Junior
+S266,MA4042 Calculus I,,Junior
+S267,MA4042 Calculus I,,Junior
+S268,MA4042 Calculus I,,Junior
+S269,MA4000 Precalculus,,Junior
+S270,MAxxxx Advanced Maths,,Junior
+S271,MA4000 Precalculus,,Junior
+S272,MA4012 Calculus Ia,,Junior
+S273,MA4042 Calculus I,,Junior
+S274,MA4000 Precalculus,,Junior
+S275,MA4042 Calculus I,,Junior
+S276,MA4042 Calculus I,,Junior
+S277,MA4000 Precalculus,,Junior
+S278,MAxxxx Advanced Maths,,Junior
+S279,MA4042 Calculus I,,Junior
+S280,MA4046 Calculus II,,Junior
+S281,MAxxxx Advanced Maths,,Junior
+S283,MA4000 Precalculus,,Junior
+S284,MA4000 Precalculus,,Junior
+S285,MA4042 Calculus I,,Junior
+S286,MA4042 Calculus I,,Junior
+S287,MA4042 Calculus I,,Junior
+S288,MA4000 Precalculus,,Junior
+S289,MA4000 Precalculus,,Junior
+S290,MA4042 Calculus I,,Junior
+S291,MA4000 Precalculus,,Junior
+S292,MA4000 Precalculus,,Junior
+S293,MA4000 Precalculus,,Junior
+S294,MA4000 Precalculus,,Junior
+S295,MA4042 Calculus I,,Junior
+S296,MA4046 Calculus II,,Junior
+S297,MA4042 Calculus I,,Junior
+S298,MA4042 Calculus I,,Junior
+S299,MA4046 Calculus II,,Junior
+S300,MA4042 Calculus I,,Junior
+S301,MA4042 Calculus I,,Junior
+S302,MA4042 Calculus I,,Junior
+S303,MA4000 Precalculus,,Junior
+S304,MA4042 Calculus I,,Junior
+S305,MA4042 Calculus I,,Junior
+S306,MA4042 Calculus I,,Junior
+S307,MA4000 Precalculus,,Junior
+S308,MA4042 Calculus I,,Junior
+S309,MA4042 Calculus I,,Junior
+S310,MA4000 Precalculus,,Junior
+S311,MA4000 Precalculus,,Junior
+S312,MAxxxx Advanced Maths,,Junior
+S313,MA4000 Precalculus,,Junior
+S314,MAxxxx Advanced Maths,,Junior
+S315,MAxxxx Advanced Maths,,Junior
+S316,MA4000 Precalculus,,Junior
+S317,MA4000 Precalculus,,Junior
+S318,MA4000 Precalculus,,Junior
+S319,MA4042 Calculus I,,Junior
+S320,MA4000 Precalculus,,Junior
+S321,MA4042 Calculus I,,Junior
+S322,MA4000 Precalculus,,Junior
+S323,MA4042 Calculus I,,Junior
+S324,MA4000 Precalculus,,Junior
+S325,MA4042 Calculus I,,Junior
+S326,MA4042 Calculus I,,Junior
+S327,MA4042 Calculus I,,Junior
+S328,MAxxxx Advanced Maths,,Junior
+S330,MA4000 Precalculus,,Junior
+S331,MAxxxx Advanced Maths,,Junior
+S332,MAxxxx Advanced Maths,,Junior
+S333,MA4042 Calculus I,,Junior
+S334,MA4012 Calculus Ia,,Junior
+S335,MA4000 Precalculus,,Junior
+S336,MA4042 Calculus I,,Junior
+S337,MAxxxx Advanced Maths,,Junior
+S338,MA4042 Calculus I,,Junior
+S339,MA4042 Calculus I,,Junior
+S340,MAxxxx Advanced Maths,,Junior
+S341,MA4000 Precalculus,,Junior
+S342,MA4000 Precalculus,,Junior
+S343,MA4042 Calculus I,,Junior
+S344,MA4000 Precalculus,,Junior
+S345,MA4046 Calculus II,,Junior
+S346,MA4042 Calculus I,,Junior
+S347,MA4000 Precalculus,,Junior
+S348,MA4000 Precalculus,,Junior
+S349,MA4000 Precalculus,,Junior
+S350,MA4000 Precalculus,,Junior
+S351,MA4012 Calculus Ia,,Junior
+S352,MA4042 Calculus I,,Senior
+S353,MA4042 Calculus I,,Senior
+S354,MA4000 Precalculus,,Senior
+S355,MA4042 Calculus I,,Senior
+S356,MAxxxx Advanced Maths,,Senior
+S357,MA4042 Calculus I,,Senior
+S358,MA4000 Precalculus,,Senior
+S359,MAxxxx Advanced Maths,,Senior
+S360,MA4042 Calculus I,,Senior
+S361,MA4042 Calculus I,,Senior
+S362,MA4000 Precalculus,,Senior
+S363,MA4000 Precalculus,,Senior
+S364,MA4000 Precalculus,,Senior
+S365,"MA4050 (Fall), 1 choice",,Senior
+S366,MAxxxx Advanced Maths,,Senior
+S367,MAxxxx Advanced Maths,,Senior
+S368,MA4042 Calculus I,,Senior
+S368,MA4042 Calculus I,,Senior
+S369,MAxxxx Advanced Maths,,Senior
+S370,MA4000 Precalculus,,Senior
+S371,MA4000 Precalculus,,Senior
+S372,MAxxxx Advanced Maths,,Senior
+S373,MA4042 Calculus I,,Senior
+S374,MA4046 Calculus II,,Senior
+S375,MA4042 Calculus I,,Senior
+S376,MA4000 Precalculus,,Senior
+S377,MA4042 Calculus I,,Senior
+S378,MA4000 Precalculus,,Senior
+S379,MAxxxx Advanced Maths,,Senior
+S380,"MA4050 (Fall), 1 choice",,Senior
+S381,MA4046 Calculus II,,Senior
+S382,MA4042 Calculus I,,Senior
+S383,MA4042 Calculus I,,Senior
+S384,MA4042 Calculus I,,Senior
+S385,MAxxxx Advanced Maths,,Senior
+S386,MA4042 Calculus I,,Senior
+S387,MA4000 Precalculus,,Senior
+S388,MA4042 Calculus I,,Senior
+S389,MA4042 Calculus I,,Senior
+S390,MA4000 Precalculus,,Senior
+S391,MA4000 Precalculus,,Senior
+S392,MA4042 Calculus I,,Senior
+S393,MA4000 Precalculus,,Senior
+S394,MA4000 Precalculus,,Senior
+S395,MA4000 Precalculus,,Senior
+S396,MAxxxx Advanced Maths,,Senior
+S397,MA4042 Calculus I,,Senior
+S398,MAxxxx Advanced Maths,,Senior
+S399,MA4042 Calculus I,,Senior
+S400,MA4000 Precalculus,,Senior
+S401,MAxxxx Advanced Maths,,Senior
+S402,MA4046 Calculus II,,Senior
+S403,MA4000 Precalculus,,Senior
+S404,MA4042 Calculus I,,Senior
+S405,MA4000 Precalculus,,Senior
+S406,MAxxxx Advanced Maths,,Senior
+S407,MA4042 Calculus I,,Senior
+S408,MA4042 Calculus I,,Senior
+S409,MAxxxx Advanced Maths,,Senior
+S411,MAxxxx Advanced Maths,,Senior
+S411,MAxxxx Advanced Maths,,Senior
+S412,MA4000 Precalculus,,Senior
+S413,MAxxxx Advanced Maths,,Senior
+S414,MA4042 Calculus I,,Senior
+S415,MA4042 Calculus I,,Senior
+S416,MA4042 Calculus I,,Senior
+S417,MA4042 Calculus I,,Senior
+S418,MA4000 Precalculus,,Senior
+S419,MA4042 Calculus I,,Senior
+S420,MA4042 Calculus I,,Senior
+S421,MA4046 Calculus II,,Senior
+S422,MA4000 Precalculus,,Senior
+S423,MA4042 Calculus I,,Senior
+S424,MA4042 Calculus I,,Senior
+S425,MA4000 Precalculus,,Senior
+S426,MAxxxx Advanced Maths,,Senior
+S427,MA4000 Precalculus,,Senior
+S427,MA4000 Precalculus,,Senior
+S427,MA4000 Precalculus,,Senior
+S428,MA4000 Precalculus,,Senior
+S429,MA4000 Precalculus,,Senior
+S430,MA4042 Calculus I,,Senior
+S431,MA4042 Calculus I,,Senior
+S432,MA4000 Precalculus,,Senior
+S433,MA4000 Precalculus,,Senior
+S434,MA4000 Precalculus,,Senior
+S434,MA4000 Precalculus,,Senior
+S434,MA4000 Precalculus,,Senior
+S435,MA4042 Calculus I,,Senior
+S436,MA4042 Calculus I,,Senior
+S437,MAxxxx Advanced Maths,,Senior
+S438,MA4042 Calculus I,,Senior
+S439,MA4042 Calculus I,,Senior
+S439,MA4042 Calculus I,,Senior
+S440,MA4042 Calculus I,,Senior
+S441,MAxxxx Advanced Maths,,Senior
+S442,MAxxxx Advanced Maths,,Senior
+S443,MA4000 Precalculus,,Senior
+S444,MAxxxx Advanced Maths,,Senior
+S445,MA4000 Precalculus,,Senior
+S446,MA4000 Precalculus,,Senior
+S447,MA4042 Calculus I,,Senior
+S448,MA4042 Calculus I,,Senior
+S449,MA4042 Calculus I,,Senior
+S450,MAxxxx Advanced Maths,,Senior
+S451,MAxxxx Advanced Maths,,Senior
+S452,MA4042 Calculus I,,Senior
+S453,MA4000 Precalculus,,Senior
+S454,MA4042 Calculus I,,Senior
+S455,MA4000 Precalculus,,Senior
+S456,MA4042 Calculus I,,Senior
+S457,MA4000 Precalculus,,Senior
+S458,MA4000 Precalculus,,Senior
+S459,MA4042 Calculus I,,Senior
+S460,MA4042 Calculus I,,Senior
+S461,MA4000 Precalculus,,Senior
+S462,MA4042 Calculus I,,Senior
+S463,MA4042 Calculus I,,Senior
+S464,MA4046 Calculus II,,Senior
+S465,MA4046 Calculus II,,Senior
+S466,MA4042 Calculus I,,Senior
+S467,MA4000 Precalculus,,Senior
+S468,MA4000 Precalculus,,Senior
+S469,MA4000 Precalculus,,Senior
+S470,MA4000 Precalculus,,Senior
+S471,MA4042 Calculus I,,Senior
+S472,MA4000 Precalculus,,Senior
+S473,MA4000 Precalculus,,Senior
+S474,MA4042 Calculus I,,Senior
+S475,MA4000 Precalculus,,Senior
+S476,MA4042 Calculus I,,Senior
+S477,MA4042 Calculus I,,Senior
+S478,MA4042 Calculus I,,Senior
+S479,MA4042 Calculus I,,Senior
+S480,MA4000 Precalculus,,Senior
+S481,MA4000 Precalculus,,Senior
+S482,MA4000 Precalculus,,Senior
+S483,MAxxxx Advanced Maths,,Senior
+S484,MA4042 Calculus I,,Senior
+S486,MA4042 Calculus I,,Senior
+S488,MA4042 Calculus I,,Senior
+S489,MAxxxx Advanced Maths,,Senior
+S490,MA4000 Precalculus,,Senior
+S491,MA4000 Precalculus,,Senior
+S492,MA4042 Calculus I,,Senior
+S493,MA4042 Calculus I,,Senior
+S494,MAxxxx Advanced Maths,,Senior
+S495,MAxxxx Advanced Maths,,Senior
+S496,MAxxxx Advanced Maths,,Senior
+S497,MA4000 Precalculus,,Senior
+S498,MA4042 Calculus I,,Senior
+S499,MA4042 Calculus I,,Senior
+S500,MA4000 Precalculus,,Senior
+S501,MA4042 Calculus I,,Senior
+S502,MA4000 Precalculus,,Senior
+S503,MA4042 Calculus I,,Senior
+S504,MA4042 Calculus I,,Senior
+S505,MA4000 Precalculus,,Senior
+S506,MA4042 Calculus I,,Senior
+S507,MA4042 Calculus I,,Senior
+S508,MA4042 Calculus I,,Senior
+S509,MA4042 Calculus I,,Senior
+S510,MA4042 Calculus I,,Senior
+S511,MA4042 Calculus I,,Senior
+S512,MA4042 Calculus I,,Senior
+S513,MAxxxx Advanced Maths,,Senior
+S514,MAxxxx Advanced Maths,,Senior
+S515,MA4042 Calculus I,,Senior
+S516,MA4046 Calculus II,,Senior
+S517,MA4000 Precalculus,,Senior
+S518,MAxxxx Advanced Maths,,Senior
+S519,MA4000 Precalculus,,Senior
+S520,MA4042 Calculus I,,Senior
+S521,MAxxxx Advanced Maths,,Senior
+S522,MA4042 Calculus I,,Senior
+S523,MA4000 Precalculus,,Senior
+S524,MA4042 Calculus I,,Senior
+S525,MAxxxx Advanced Maths,,Senior
+S526,MA4042 Calculus I,,Senior
+S527,MA4046 Calculus II,,Senior
+S528,MA4042 Calculus I,,Senior
+S529,MA4000 Precalculus,,Senior
+S531,MA4046 Calculus II,,Senior
+S532,MAxxxx Advanced Maths,,Senior
+S533,MA4042 Calculus I,,Senior
+S535,MA4000 Precalculus,,Senior
+S535,MA4000 Precalculus,,Senior
+S536,MA4042 Calculus I,,Senior
+S537,MA4000 Precalculus,,Senior
+S538,MAxxxx Advanced Maths,,Senior
+S539,MA4042 Calculus I,,Senior
+S540,MA4042 Calculus I,,Senior
+S541,MA4046 Calculus II,,Senior
+S542,MAxxxx Advanced Maths,,Senior
+S543,MA4042 Calculus I,,Senior
+S544,MA4000 Precalculus,,Senior
+S545,MA4046 Calculus II,,Senior
+S546,MA4046 Calculus II,,Senior
+S547,MA4042 Calculus I,,Senior
+S548,MA4000 Precalculus,,Senior
+S549,MAxxxx Advanced Maths,,Senior
+S550,MA4042 Calculus I,,Senior
+S551,MA4042 Calculus I,,Senior
+S552,MA4046 Calculus II,,Senior
+S553,MA4042 Calculus I,,Senior
+S554,MA4042 Calculus I,,Senior
+S555,MA4042 Calculus I,,Senior
+S556,MA4000 Precalculus,,Senior
+S557,MA4042 Calculus I,,Senior
+S558,MA4000 Precalculus,,Senior
+S559,MA4000 Precalculus,,Senior
+S560,MA4000 Precalculus,,Senior
+S561,MA4042 Calculus I,,Senior
+S562,MAxxxx Advanced Maths,,Senior
+S563,MAxxxx Advanced Maths,,Senior
+S564,MA4000 Precalculus,,Senior
+S565,MA4000 Precalculus,,Senior
+S566,MA4042 Calculus I,,Senior
+S567,MA4000 Precalculus,,Senior
+S568,MAxxxx Advanced Maths,,Senior
+S569,MAxxxx Advanced Maths,,Senior
+S570,MA4042 Calculus I,,Senior
+S571,MA4042 Calculus I,,Senior
+S572,MA4000 Precalculus,,Senior
+S573,MA4000 Precalculus,,Senior
+S574,MA4042 Calculus I,,Senior
+S575,MA4042 Calculus I,,Senior
+S576,MA4000 Precalculus,,Senior
+S577,MA4000 Precalculus,,Senior
+S578,MA4000 Precalculus,,Senior
+S579,MA4000 Precalculus,,Senior
+S580,MA4000 Precalculus,,Senior
+S581,MA4000 Precalculus,,Senior
+S582,MA4042 Calculus I,,Senior
+S583,MA4042 Calculus I,,Senior
+S584,MA4042 Calculus I,,Senior
+S585,MAxxxx Advanced Maths,,Senior
+S586,MA4000 Precalculus,,Senior
+S587,MA4000 Precalculus,,Senior
+S588,MA4000 Precalculus,,Senior
+S589,MAxxxx Advanced Maths,,Senior
+S589,MAxxxx Advanced Maths,,Senior
+S590,MA4042 Calculus I,,Senior
+S591,MA4042 Calculus I,,Senior
+S592,MA4042 Calculus I,,Senior
+S592,MA4042 Calculus I,,Senior
+S593,MA4000 Precalculus,,Senior
+S594,MA4042 Calculus I,,Senior
+S595,MA4042 Calculus I,,Senior
+S596,MA4042 Calculus I,,Senior
+S597,MA4000 Precalculus,,Senior
+S598,MAxxxx Advanced Maths,,Senior
+S599,MA4046 Calculus II,,Senior
+S600,MA4042 Calculus I,,Senior
+S601,MA4042 Calculus I,,Senior
+S602,MA4000 Precalculus,,Senior
+S603,MA4000 Precalculus,,Senior
+S604,MA4046 Calculus II,,Senior
+S605,MA4042 Calculus I,,Senior
+S606,MA4046 Calculus II,,Senior
+S607,MAxxxx Advanced Maths,,Senior
+S607,MAxxxx Advanced Maths,,Senior
+S608,MA4042 Calculus I,,Senior
+S609,MAxxxx Advanced Maths,,Senior
+S610,MAxxxx Advanced Maths,,Senior
+S611,MA4000 Precalculus,,Senior
+S612,MAxxxx Advanced Maths,,Senior
+S613,MA4042 Calculus I,,Senior
+S613,MA4042 Calculus I,,Senior
+S614,MAxxxx Advanced Maths,,Senior
+S615,MA4000 Precalculus,,Senior
+S616,MA4000 Precalculus,,Senior
+S617,MA4046 Calculus II,,Senior
+S618,MAxxxx Advanced Maths,,Senior
+S619,"MA4050 (Fall), 1 choice",,Senior
+S620,MA4000 Precalculus,,Senior
+S620,MA4000 Precalculus,,Senior
+S621,MA4000 Precalculus,,Senior
+S622,MA4000 Precalculus,,Senior
+S623,MA4042 Calculus I,,Senior
+S624,MA4042 Calculus I,,Senior
+S625,MA4000 Precalculus,,Senior
+S626,MA4042 Calculus I,,Senior
+S627,MA4042 Calculus I,,Senior
+S628,MA4042 Calculus I,,Senior
+S629,MA4000 Precalculus,,Senior
+S630,MA4046 Calculus II,,Senior
+S631,MA4042 Calculus I,,Senior
+S632,MA4042 Calculus I,,Senior
+S633,MA4042 Calculus I,,Senior
+S634,MAxxxx Advanced Maths,,Senior
+S635,"MA4050 (Fall), 1 choice",,Senior
+S636,MA4042 Calculus I,,Senior
+S637,MA4046 Calculus II,,Senior
+S638,MAxxxx Advanced Maths,,Senior
+S639,MA4046 Calculus II,,Senior
+S640,MA4042 Calculus I,,Senior
+S641,MAxxxx Advanced Maths,,Senior
+S642,MA4042 Calculus I,,Senior
+S643,MA4042 Calculus I,,Senior
+S644,MA4046 Calculus II,,Senior
+S645,MA4042 Calculus I,,Senior
+S646,MA4000 Precalculus,,Senior
+S647,MAxxxx Advanced Maths,,Senior
+S648,MA4000 Precalculus,,Senior
+S649,MA4000 Precalculus,,Senior
+S650,MA4042 Calculus I,,Senior
+S651,MA4000 Precalculus,,Senior
+S652,MA4046 Calculus II,,Senior
+S653,MA4000 Precalculus,,Senior
+S653,MA4000 Precalculus,,Senior
+S654,MA4042 Calculus I,,Senior
+S655,MA4042 Calculus I,,Senior
+S656,MA4042 Calculus I,,Senior
+S657,MA4042 Calculus I,,Senior
+S658,MAxxxx Advanced Maths,,Senior
+S659,MA4000 Precalculus,,Senior
+S660,MA4042 Calculus I,,Senior
+S661,MA4046 Calculus II,,Senior
+S662,MA4042 Calculus I,,Senior
+S663,MAxxxx Advanced Maths,,Senior
+S664,MA4042 Calculus I,,Senior
+S665,MAxxxx Advanced Maths,,Senior
+S666,MAxxxx Advanced Maths,,Senior
+S667,MAxxxx Advanced Maths,,Senior
+S668,MA4000 Precalculus,,Senior
+S669,MA4042 Calculus I,,Senior
+S670,MA4042 Calculus I,,Senior
+S671,MA4046 Calculus II,,Senior
+S672,MA4000 Precalculus,,Senior
+S673,MA4000 Precalculus,,Senior
+S012,CS4270: FOOD,,
+S014,CS4270: FOOD,"CS4320: Machine Learning, CS4350 Data Structures & Algorithms",
+S019,CS4270: FOOD,,
+S027,CS4270: FOOD,"CS4320: Machine Learning, CS4350 Data Structures & Algorithms",
+S037,CS4270: FOOD,"CS4320: Machine Learning, CS4350 Data Structures & Algorithms",
+S038,CS4270: FOOD,"CS4320: Machine Learning, CS4350 Data Structures & Algorithms",
+S041,CS4270: FOOD,"CS4320: Machine Learning, CS4350 Data Structures & Algorithms",
+S044,CS4270: FOOD,,
+S046,CS4270: FOOD,,
+S047,CS4270: FOOD,"CS4320: Machine Learning, CS4350 Data Structures & Algorithms",
+S068,CS4270: FOOD,"CS4320: Machine Learning, CS4350 Data Structures & Algorithms",
+S070,CS4270: FOOD,"CS4320: Machine Learning, CS4350 Data Structures & Algorithms",
+S080,CS4270: FOOD,"CS4320: Machine Learning, CS4350 Data Structures & Algorithms",
+S094,CS4270: FOOD,,
+S099,CS4270: FOOD,,
+S101,CS4270: FOOD,,
+S108,CS4270: FOOD,,
+S111,CS4270: FOOD,,
+S113,CS4270: FOOD,"CS4320: Machine Learning, CS4350 Data Structures & Algorithms",
+S114,CS4270: FOOD,"CS4320: Machine Learning, CS4350 Data Structures & Algorithms",
+S118,CS4270: FOOD,,
+S133,CS4270: FOOD,,
+S134,CS4270: FOOD,,
+S137,CS4270: FOOD,"CS4320: Machine Learning, CS4350 Data Structures & Algorithms",
+S141,CS4270: FOOD,,
+S145,CS4270: FOOD,,
+S158,CS4270: FOOD,,
+S159,CS4270: FOOD,,
+S160,CS4270: FOOD,,
+S164,CS4270: FOOD,"CS4320: Machine Learning, CS4350 Data Structures & Algorithms",
+S172,CS4270: FOOD,,
+S178,CS4270: FOOD,"CS4320: Machine Learning, CS4350 Data Structures & Algorithms",
+S191,CS4270: FOOD,,
+S192,CS4270: FOOD,"CS4320: Machine Learning, CS4350 Data Structures & Algorithms",
+S208,CS4270: FOOD,,
+S210,CS4270: FOOD,,
+S212,CS4270: FOOD,,
+S221,CS4270: FOOD,,
+S223,CS4270: FOOD,"CS4320: Machine Learning, CS4350 Data Structures & Algorithms",
+S225,CS4270: FOOD,,
+S235,CS4270: FOOD,"CS4320: Machine Learning, CS4350 Data Structures & Algorithms",
+S236,CS4270: FOOD,"CS4320: Machine Learning, CS4350 Data Structures & Algorithms",
+S245,CS4270: FOOD,"CS4320: Machine Learning, CS4350 Data Structures & Algorithms",
+S251,CS4270: FOOD,,
+S272,CS4270: FOOD,,
+S274,CS4270: FOOD,,
+S278,CS4270: FOOD,"CS4320: Machine Learning, CS4350 Data Structures & Algorithms",
+S296,CS4270: FOOD,"CS4320: Machine Learning, CS4350 Data Structures & Algorithms",
+S314,CS4270: FOOD,"CS4320: Machine Learning, CS4350 Data Structures & Algorithms",
+S321,CS4270: FOOD,,
+S322,CS4270: FOOD,,
+S326,CS4270: FOOD,,
+S331,CS4270: FOOD,"CS4320: Machine Learning, CS4350 Data Structures & Algorithms",
+S332,CS4270: FOOD,"CS4320: Machine Learning, CS4350 Data Structures & Algorithms",
+S338,CS4270: FOOD,,
+S339,CS4270: FOOD,,
+S367,CS4270: FOOD,"CS4320: Machine Learning, CS4350 Data Structures & Algorithms",
+S398,CS4270: FOOD,"CS4320: Machine Learning, CS4350 Data Structures & Algorithms",
+S415,CS4270: FOOD,"CS4320: Machine Learning, CS4350 Data Structures & Algorithms",
+S442,CS4270: FOOD,,
+S444,CS4270: FOOD,"CS4320: Machine Learning, CS4350 Data Structures & Algorithms",
+S451,CS4270: FOOD,,
+S462,CS4270: FOOD,,
+S488,CS4270: FOOD,"CS4320: Machine Learning, CS4350 Data Structures & Algorithms",
+S492,CS4270: FOOD,"CS4320: Machine Learning, CS4350 Data Structures & Algorithms",
+S495,CS4270: FOOD,"CS4320: Machine Learning, CS4350 Data Structures & Algorithms",
+S508,CS4270: FOOD,,
+S513,CS4270: FOOD,,
+S518,CS4270: FOOD,"CS4320: Machine Learning, CS4350 Data Structures & Algorithms",
+S521,CS4270: FOOD,"CS4320: Machine Learning, CS4350 Data Structures & Algorithms",
+S525,CS4270: FOOD,"CS4320: Machine Learning, CS4350 Data Structures & Algorithms",
+S538,CS4270: FOOD,,
+S546,CS4270: FOOD,,
+S549,CS4270: FOOD,,
+S566,CS4270: FOOD,,
+S569,CS4270: FOOD,,
+S611,CS4270: FOOD,,
+S632,CS4270: FOOD,,
+S637,CS4270: FOOD,"CS4320: Machine Learning, CS4350 Data Structures & Algorithms",
+S641,CS4270: FOOD,"CS4320: Machine Learning, CS4350 Data Structures & Algorithms",
+S652,CS4270: FOOD,,
+S656,CS4270: FOOD,,
+S663,CS4270: FOOD,"CS4320: Machine Learning, CS4350 Data Structures & Algorithms",
