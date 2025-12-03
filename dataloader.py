@@ -9,7 +9,7 @@ main_sheet = pd.read_excel("Math Modeling Data Project.xlsx", sheet_name=None)
 # course_names = main_sheet['Spring Course Offerings, Meetin'].iloc[:, 1].tolist()
 # course_meetin
 courses = []
-course_dict = {}
+course_dict: dict[str, list[Course]] = {}
 
 for index, row in main_sheet['Spring Course Offerings, Meetin'].iloc[1:].iterrows():
     courses.append(Course(
@@ -18,7 +18,7 @@ for index, row in main_sheet['Spring Course Offerings, Meetin'].iloc[1:].iterrow
         row[6],
         row[7]
     ))
-    course_dict[row[3]] = [course_dict.get(row[3], []) , courses[-1]][-1]
+    course_dict.setdefault(str(row[3]), []).append(courses[-1])
 # note: research courses can meet F and G block, but we should not consider them for dropadd anyway and they are ignored. 
 print(courses)
 print(course_dict)
