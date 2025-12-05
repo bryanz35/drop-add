@@ -1,5 +1,5 @@
 from collections import defaultdict
-
+from typing import Optional
 
 class Course:
     def __init__(
@@ -28,7 +28,9 @@ class Course:
 class Student:
     def __init__(self):
         self.schedule = defaultdict(int)
-        self.courses: set[str] = set()
+        self.courses: dict[str, Course] = {}
+        self.drop: list[Drop] = []
+
 
     def __repr__(self):
         return f"Student({self.courses})"
@@ -38,5 +40,19 @@ class Student:
 
     def add_course(self, course: Course):
         self.schedule[course.block] |= course.days
-        self.courses.add(course.id)
+        self.courses[course.id] = course
         course.enrolled += 1
+    
+    def remove_course(self, course_id: str):
+        course = self.courses[course_id]
+        self.schedule[course.block] ^= course.days
+        del self.courses[course.id]
+        course.enrolled -= 1
+
+class Drop:
+    def __init__(self, main_add: str, alternates_id: list[str] = [], drop: Optional[str] = None):
+        self.main_add = main_add
+        self.alternates_id = alternates_id
+        self.drop = drop
+    
+    
