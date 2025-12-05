@@ -1,26 +1,21 @@
-import pandas as pd 
-from objects import Course, Student
+import csv
+from collections import defaultdict
+from pprint import pp
 
-main_sheet = pd.read_excel("Math Modeling Data Project.xlsx", sheet_name=None)
-# print(main_sheet.keys())
-# dict_keys(['Spring Course Offerings, Meetin', 'Student Schedules Before DropAd', 'Student Placements', 'DropAdd Requests'])
-# print(main_sheet['Spring Course Offerings, Meetin'])
-# course_ids = main_sheet['Spring Course Offerings, Meetin'].iloc[:, 0].tolist()
-# course_names = main_sheet['Spring Course Offerings, Meetin'].iloc[:, 1].tolist()
-# course_meetin
+from objects import Course
+
+idx = 0
 courses = []
-course_dict: dict[str, list[Course]] = {}
+course_dict: dict[str, list[Course]] = defaultdict(list)
 
-for index, row in main_sheet['Spring Course Offerings, Meetin'].iloc[1:].iterrows():
-    courses.append(Course(
-        row[3],
-        row[1],
-        row[6],
-        row[7]
-    ))
-    course_dict.setdefault(str(row[3]), []).append(courses[-1])
-# note: research courses can meet F and G block, but we should not consider them for dropadd anyway and they are ignored. 
-print(courses)
-print(course_dict)
-student_sheet = main_sheet['Student Schedules Before DropAd']
-# print(student_sheet)
+with open("courses.csv") as f:
+    reader = csv.reader(f)
+    next(reader)  # skip headers
+    for row in reader:
+        courses.append(
+            Course(idx, row[3], row[1].split(" ", 1)[1], row[6], int(row[7]))
+        )
+        course_dict[row[3]].append(courses[-1])
+        idx += 1
+
+pp(course_dict)
