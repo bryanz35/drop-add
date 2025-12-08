@@ -47,19 +47,17 @@ class Student:
     def __repr__(self):
         return f"Student({pformat(self.courses)})"
 
-    def conflict(self, course: Course) -> bool:
-        return self.schedule[course.block] & course.days > 0
+    def get(self, id: str) -> Course | None:
+        return self.courses.get(id)
 
-    def add_course(self, course: Course):
-        self.schedule[course.block] |= course.days
-        self.courses[course.id] = course
-        course.enrolled += 1
-
-    def remove_course(self, course_id: str):
-        course = self.courses[course_id]
+    def toggle_course(self, course: Course, remove: bool):
         self.schedule[course.block] ^= course.days
-        del self.courses[course.id]
-        course.enrolled -= 1
+        if remove:
+            course.enrolled -= 1
+            del self.courses[course.id]
+        else:
+            course.enrolled += 1
+            self.courses[course.id] = course
 
 
 class Drop:
@@ -67,6 +65,7 @@ class Drop:
         self.drop = drop
         self.main = main_id
         self.alts = alternates_id
+        self.satisfied = False
 
     def __repr__(self) -> str:
         return f"Drop({self.drop}, {self.main}, {self.alts})"

@@ -1,24 +1,17 @@
 import random
 
 import dataloader
-from objects import Course, Student
+from objects import Course, Drop, Student
 
 
 class Edge:
-    def __init__(self, student: Student, start: Course, end: Course, weight: int):
+    def __init__(self, student: Student, drop: Drop, end: Course, weight: int):
         self.student = student
-        self.start = start
+        self.drop = drop
         self.end = end
         self.weight = weight
         self.enable = False
         self.other: Edge
-
-    def available(self) -> bool:
-        return (
-            self.enable
-            and self.start in self.student.courses
-            and not self.student.conflict(self.end)
-        )
 
 
 class Vertex:
@@ -31,14 +24,14 @@ vertices: list[Vertex] = [Vertex(course) for course in dataloader.courses]
 MAX_LENGTH = 3  # limit on augmenting path lengths
 
 
-def add_edge(student: Student, start: Course, end: Course, weight: int):
-    forward = Edge(student, start, end, weight)
-    back = Edge(student, start, end, -weight)
+def add_edge(student: Student, drop: Drop, end: Course, weight: int):
+    forward = Edge(student, drop, end, weight)
+    back = Edge(student, drop, end, -weight)
     forward.enable = True
     forward.other = back
     back.other = forward
 
-    vertices[start.i].out.append(forward)
+    vertices[student.courses[drop.drop].i].out.append(forward)
     vertices[end.i].out.append(back)
 
 
