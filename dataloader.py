@@ -1,15 +1,20 @@
 import csv
 from collections import defaultdict
+from pprint import pp
 
 from objects import Course, Drop, Student
 
 STUDENTS = 680  # upper bound, actual is 673
-BLOCKS = "ABCDEFGHI"  # we only consider courses in these blocks (ignore M)
+# edge cases (see README)
+BLOCKS = "ABCDEFGHI"  # exclude M block
+SKIP_OFFERING = ["MR3080"]
+SKIP_REQUESTS = ["HU4410", "HU4480", "CS4120", "AS4052"]
 
 course_idx = 0
 courses: list[Course] = []
 course_dict: dict[str, dict[int, Course]] = defaultdict(dict)  # id to dict of instances
 ignored: set[str] = set()  # list of ignored course IDs
+bad_reqs = []
 
 
 def add_course(row: list[str]):
@@ -31,8 +36,7 @@ with open("courses.csv") as f:
     reader = csv.reader(f)
     next(reader)  # skip headers
     for row in reader:
-        # see README
-        if row[3] == "MR3080":
+        if row[3] in SKIP_OFFERING:
             continue
         add_course(row)
 
@@ -50,7 +54,7 @@ add_course(
     ]
 )
 
-students: list[Student] = [Student() for _ in range(STUDENTS)]
+students: list[Student] = [Student(i) for i in range(STUDENTS)]
 with open("schedules.csv") as f:
     reader = csv.reader(f)
     next(reader)  # skip headers
@@ -65,6 +69,9 @@ with open("schedules.csv") as f:
         instance = int(row[5][len(row[3]) + 1 :])
         students[id].add_course(course_dict[row[3]][instance])
 
+# exceeds cap
+for course in courses:
+    course.max_enrollment = max(course.max_enrollment, course.enrolled)
 
 with open("requests.csv") as f:
     reader = csv.reader(f)
@@ -75,8 +82,7 @@ with open("requests.csv") as f:
             continue
 
         def is_none(s: str) -> bool:
-            MISSING = ["HU4410", "HU4480", "CS4120"]  # see README
-            return s == "" or s == "None" or s in MISSING
+            return s == "" or s == "None" or s in SKIP_REQUESTS
 
         def get_id(i: int) -> str | None:
             id = row[i].split(" ")[0]
@@ -85,31 +91,34 @@ with open("requests.csv") as f:
         # valid drop add
         for group in range(4):
             drop = get_id(4 * group + 4)
-            main = get_id(4 * group + 5)
-            alts = []
-            if alt := get_id(4 * group + 6):
-                alts.append(alt)
-            if alt := get_id(4 * group + 7):
-                alts.append(alt)
 
-            if drop and drop not in students[id].courses:  # see README
-                continue
+            main = get_id(4 * group + 5)
+            if main == drop:
+                main = None
+            alts = []
+            if (alt := get_id(4 * group + 6)) and alt != drop:
+                alts.append(alt)
+            if (alt := get_id(4 * group + 7)) and alt != drop:
+                alts.append(alt)
 
             if main is None:
                 if alts:
-                    main = alts.pop(0)
-                elif drop:  # only drop, no add
-                    students[id].remove_course(drop)
+                    main = alts.pop(0)  # bump alt to main
+                else:
+                    # do not allow only drop -> underload
+                    if drop:
+                        bad_reqs.append([id] + row[4 * group : 4 * group + 4])
                     continue
-                else:  # empty request
-                    continue
 
-            # has main add
-            students[id].drops.append(Drop(main, alts, drop))
+            if drop not in students[id].courses:  # see README
+                bad_reqs.append(row)
+                continue
+
+            students[id].drops.append(Drop(drop, main, alts))
 
 
-def check_valid():
-    """Return whether all main+alts exist in course_dict"""
+def check_valid_courses() -> bool:
+    """Return whether all main+alts exist in course_dict."""
     for i, s in enumerate(students):
         for d in s.drops:
             if any(course not in course_dict for course in [d.main] + d.alts):
@@ -118,15 +127,28 @@ def check_valid():
     return True
 
 
+def check_no_cycle() -> bool:
+    """Return whether a student requests to drop and add the same course."""
+    for i, s in enumerate(students):
+        drops = set()
+        adds = set()
+        for d in s.drops:
+            drops.add(d.drop)
+            for id in [d.main] + d.alts:
+                adds.add(id)
+        if drops & adds:
+            print("CYCLE DETECTED", i)
+            pp(s.drops)
+            return False
+    return True
+
+
 if __name__ == "__main__":
     print("courses:", len(courses))
     print("distinct:", len(course_dict))
     print("ignored:", ignored)
     print("students with request:", len(list(filter(lambda s: s.drops, students))))
+    print("bad requests:", len(bad_reqs))
 
-    assert check_valid()
-
-    # exceeds cap
-    for course in courses:
-        if course.max_enrollment < course.enrolled:
-            print(course)
+    assert check_valid_courses()
+    assert check_no_cycle()

@@ -1,5 +1,5 @@
 from collections import defaultdict
-from typing import Optional
+from pprint import pformat
 
 
 class Course:
@@ -38,13 +38,14 @@ class Course:
 
 
 class Student:
-    def __init__(self):
+    def __init__(self, id: int):
+        self.id = id
         self.schedule = defaultdict(int)
         self.courses: dict[str, Course] = {}
         self.drops: list[Drop] = []
 
     def __repr__(self):
-        return f"Student({self.courses})"
+        return f"Student({pformat(self.courses)})"
 
     def conflict(self, course: Course) -> bool:
         return self.schedule[course.block] & course.days > 0
@@ -62,12 +63,10 @@ class Student:
 
 
 class Drop:
-    def __init__(
-        self, main_id: str, alternates_id: list[str] = [], drop: Optional[str] = None
-    ):
+    def __init__(self, drop: str, main_id: str, alternates_id: list[str] = []):
+        self.drop = drop
         self.main = main_id
         self.alts = alternates_id
-        self.drop = drop
 
     def __repr__(self) -> str:
         return f"Drop({self.drop}, {self.main}, {self.alts})"
