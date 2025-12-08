@@ -1,6 +1,5 @@
 import csv
 from collections import defaultdict
-from pprint import pp
 
 from objects import Course, Drop, Student
 
@@ -73,6 +72,7 @@ with open("schedules.csv") as f:
 for course in courses:
     course.max_enrollment = max(course.max_enrollment, course.enrolled)
 
+no_constraint = 0
 with open("requests.csv") as f:
     reader = csv.reader(f)
     next(reader)  # skip headers
@@ -80,17 +80,22 @@ with open("requests.csv") as f:
         id = int(row[0][1:])
         if row[3] != "None of these apply":
             continue
+        no_constraint += 1
 
         def is_none(s: str) -> bool:
             return s == "" or s == "None" or s in SKIP_REQUESTS
 
-        def get_id(i: int) -> str | None:
-            id = row[i].split(" ")[0]
-            return None if is_none(id) else id
+        def get_id(i: int, drop=False) -> str | None:
+            cid = row[i].split(" ")[0]
+            return (
+                None
+                if is_none(cid) or (not drop and cid in students[id].courses)
+                else cid
+            )
 
         # valid drop add
         for group in range(4):
-            drop = get_id(4 * group + 4)
+            drop = get_id(4 * group + 4, True)
 
             main = get_id(4 * group + 5)
             if main == drop:
@@ -118,28 +123,15 @@ with open("requests.csv") as f:
 
 
 def check_valid_courses() -> bool:
-    """Return whether all main+alts exist in course_dict."""
+    """Check whether all main+alts exist in course_dict and not their courses."""
     for i, s in enumerate(students):
         for d in s.drops:
-            if any(course not in course_dict for course in [d.main] + d.alts):
+            if any(
+                course not in course_dict or course in s.courses
+                for course in [d.main] + d.alts
+            ):
                 print("INVALID", i, d)
                 return False
-    return True
-
-
-def check_no_cycle() -> bool:
-    """Return whether a student requests to drop and add the same course."""
-    for i, s in enumerate(students):
-        drops = set()
-        adds = set()
-        for d in s.drops:
-            drops.add(d.drop)
-            for id in [d.main] + d.alts:
-                adds.add(id)
-        if drops & adds:
-            print("CYCLE DETECTED", i)
-            pp(s.drops)
-            return False
     return True
 
 
@@ -148,7 +140,7 @@ if __name__ == "__main__":
     print("distinct:", len(course_dict))
     print("ignored:", ignored)
     print("students with request:", len(list(filter(lambda s: s.drops, students))))
+    print("students with no constraints:", no_constraint)
     print("bad requests:", len(bad_reqs))
 
     assert check_valid_courses()
-    assert check_no_cycle()

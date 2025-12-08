@@ -1,7 +1,9 @@
 # NCSSM Drop Add 2023-2024
 
 - Students with requests: 370
-- Students to process: 233
+- Students with no constraints: 263
+- Students to process: 226
+- Bad requests: 29
 
 Current edges cases:
 
@@ -19,7 +21,7 @@ Current edges cases:
   - HU4480
 - Ignore requests that deal with AS4052 (Amstud II)
 - Ignore requests that drops course student does not have (S535, S592).
-- Delete add alternates if it is the same as the drop
+- Ignore courses in main or alts that the student already has.
   (why would you request to drop and add the same course).
 - If a course has more people enrolled than its cap before drop add,
   we set the new cap to be the number of enrollments.
