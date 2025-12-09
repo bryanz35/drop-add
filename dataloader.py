@@ -66,7 +66,7 @@ with open("schedules.csv") as f:
 
         id = int(row[0][1:])
         instance = int(row[5][len(row[3]) + 1 :])
-        students[id].add_course(course_dict[row[3]][instance])
+        students[id].toggle_course(course_dict[row[3]][instance], remove=False)
 
 # exceeds cap
 for course in courses:
