@@ -14,7 +14,7 @@ courses: list[Course] = []
 course_dict: dict[str, dict[int, Course]] = defaultdict(dict)  # id to dict of instances
 ignored: set[str] = set()  # list of ignored course IDs
 bad_reqs = []
-
+good_reqs = 0
 
 def add_course(row: list[str]):
     global course_idx
@@ -118,7 +118,7 @@ with open("requests.csv") as f:
             if drop not in students[id].courses:  # see README
                 bad_reqs.append(row)
                 continue
-
+            good_reqs += 1
             students[id].drops.append(Drop(drop, main, alts))
 
 

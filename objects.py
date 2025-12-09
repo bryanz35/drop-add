@@ -26,10 +26,11 @@ class Course:
 
     def __repr__(self):
         days = str(f"{self.days >> 1:05b}")
-        return (
-            f"Course({self.id}, {self.instance}, {self.name}, {self.block}{days[::-1]}"
-            + f", Cap: {self.max_enrollment}, Enrolled: {self.enrolled})"
-        )
+        # return (
+        #     f"Course({self.id}, {self.instance}, {self.name}, {self.block}{days[::-1]}"
+        #     + f", Cap: {self.max_enrollment}, Enrolled: {self.enrolled})"
+        # )
+        return (f"Course({self.id}, {self.block}{days[::-1]}, ")
 
 
 class Student:
@@ -65,4 +66,4 @@ class Drop:
         self.alts = alternates_id
 
     def __repr__(self) -> str:
-        return f"Drop({self.drop}, {self.main}, {self.alts})"
+        return f"Drop({self.drop}, main: {self.main}, alts: {self.alts})"

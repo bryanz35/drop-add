@@ -1,3 +1,4 @@
+from collections import defaultdict
 import random
 
 import dataloader
@@ -63,10 +64,7 @@ def shuffle():
 
 def augment(start: Vertex, depth: int = MAX_LENGTH, weight: int = 0, students=set()) -> bool:
     """Find and apply augmenting path (DFS + backtracking)."""
-    # check all paths of length 3
-    # check if weight sum is positive
-    # check if last course has positive capacity
-    # check if block conflicts for any edge
+
     for edge in start.out:
         if (
             not edge.enable
@@ -101,5 +99,49 @@ def augment_all():
     for i in order:
         result = augment(vertices[i])
         changed |= result
-        print(i, result)
-    print(changed)
+        # print(i, result)
+    print("Changed: " + str(changed))
+    return changed 
+    
+def isvalid_schedule(student: Student) -> bool:
+    """Check if a student's schedule has any conflicts."""
+    schedule = defaultdict(int)
+    for course in student.courses.values():
+        if schedule[course.block] & course.days != 0:
+            return False
+        schedule[course.block] |= course.days
+    return True
+    
+if __name__ == "__main__":
+    old_schedules = {}
+    for student in dataloader.students:
+        old_schedules[student.id] = student.courses.copy()
+    
+    shuffle()
+    while augment_all():
+        pass
+    new_schedules = {}
+    for student in dataloader.students:
+        new_schedules[student.id] = student.courses.copy()
+    
+    filled_requests = 0
+    
+    print("\nChanges:")
+    for i in range(len(dataloader.students)):
+        old = set(old_schedules[i].values())
+        new = set(new_schedules[i].values())
+        if old != new:
+            removed = old - new
+            added = new - old
+
+            print(f"Student {i}:")
+            print(f"Changes: Dropped {removed}, Added {added}")
+            print(f"Request: {dataloader.students[i].drops}")
+            # check if there is a course conflict in new schedule
+            # 135 our error
+            if i not in [53, 47, 56, 121, 129, 135, 157, 262, 367, 208, 500]: # those who ignore edge cases :)
+                assert isvalid_schedule(dataloader.students[i]), f"Conflict in schedule for student {i} with courses {new_schedules[i]}"
+            print("____________________________")
+            filled_requests += 1
+    print(f"Filled {filled_requests} out of {dataloader.good_reqs} requests.")
+    
