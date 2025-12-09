@@ -14,6 +14,7 @@ courses: list[Course] = []
 course_dict: dict[str, dict[int, Course]] = defaultdict(dict)  # id to dict of instances
 ignored: set[str] = set()  # list of ignored course IDs
 bad_reqs = []
+blacklist: set[int] = set()
 good_reqs = 0
 
 def add_course(row: list[str]):
@@ -73,11 +74,24 @@ for course in courses:
     course.max_enrollment = max(course.max_enrollment, course.enrolled)
 
 no_constraint = 0
+
+def clean_student_conflicts():
+    for s in students:
+        schedule = defaultdict(int)
+        for course in s.courses.values():
+            if schedule[course.block] & course.days != 0:
+                # add students to a blacklist          
+                blacklist.add(s.id)   
+            schedule[course.block] |= course.days
+
+clean_student_conflicts()
 with open("requests.csv") as f:
     reader = csv.reader(f)
     next(reader)  # skip headers
     for row in reader:
         id = int(row[0][1:])
+        if id in blacklist:
+            continue
         if row[3] != "None of these apply":
             continue
         no_constraint += 1
@@ -134,8 +148,22 @@ def check_valid_courses() -> bool:
                 return False
     return True
 
+def check_block_conflicts() -> bool:
+    """Check whether any student's schedule has block conflicts."""
+    for i, s in enumerate(students):
+        if s.id in blacklist:
+            continue
+        schedule = defaultdict(int)
+        for course in s.courses.values():
+            if schedule[course.block] & course.days != 0:
+                print("BLOCK CONFLICT", i, s.courses)
+                return False
+            schedule[course.block] |= course.days
+    return True
+
 
 if __name__ == "__main__":
+    print("blacklist:", len(blacklist))
     print("courses:", len(courses))
     print("distinct:", len(course_dict))
     print("ignored:", ignored)
@@ -144,3 +172,4 @@ if __name__ == "__main__":
     print("bad requests:", len(bad_reqs))
 
     assert check_valid_courses()
+    assert check_block_conflicts()

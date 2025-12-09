@@ -110,6 +110,7 @@ def isvalid_schedule(student: Student) -> bool:
         if schedule[course.block] & course.days != 0:
             return False
         schedule[course.block] |= course.days
+
     return True
     
 if __name__ == "__main__":
@@ -125,7 +126,7 @@ if __name__ == "__main__":
         new_schedules[student.id] = student.courses.copy()
     
     filled_requests = 0
-    
+    conflict_ids = set()
     print("\nChanges:")
     for i in range(len(dataloader.students)):
         old = set(old_schedules[i].values())
@@ -139,9 +140,9 @@ if __name__ == "__main__":
             print(f"Request: {dataloader.students[i].drops}")
             # check if there is a course conflict in new schedule
             # 135 our error
-            if i not in [53, 47, 56, 121, 129, 135, 157, 262, 367, 208, 500]: # those who ignore edge cases :)
+            if i not in dataloader.blacklist: # those who ignore edge cases :)
                 assert isvalid_schedule(dataloader.students[i]), f"Conflict in schedule for student {i} with courses {new_schedules[i]}"
             print("____________________________")
             filled_requests += 1
     print(f"Filled {filled_requests} out of {dataloader.good_reqs} requests.")
-    
+    print(f"Hall of shame: {dataloader.blacklist}")
