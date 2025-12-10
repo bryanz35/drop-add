@@ -20,7 +20,12 @@ class Vertex:
         self.out: list[Edge] = []
 
 
+edges = 0
+
+
 def add_edge(student: Student, start: Course, end: Course, weight: int):
+    global edges
+    edges += 2
     forward = Edge(student, start, end, weight)
     back = Edge(student, end, start, -weight)
     forward.enable = True
@@ -81,12 +86,13 @@ def augment(
         students.add(edge.student)
 
         weight_next = weight + edge.weight
-        if weight_next > 0 and start.course.enrolled < start.course.max_enrollment:
+        if weight_next > 0 and edge.end.enrolled < edge.end.max_enrollment:
             edge.enable = False
             edge.other.enable = True
             return True
-        if depth > 0:
-            augment(vertices[edge.end.i], depth - 1, weight_next, students)
+        if depth > 1:
+            if augment(vertices[edge.end.i], depth - 1, weight_next, students):
+                return True
 
         edge.student.toggle_course(edge.start, remove=False)
         edge.student.toggle_course(edge.end, remove=True)
@@ -100,7 +106,8 @@ def augment_all():
     for i in order:
         result = augment(vertices[i])
         changed |= result
-        # print(i, result)
+        if result:
+            print(i)
     print("Changed: " + str(changed))
     return changed
 
@@ -114,6 +121,9 @@ if __name__ == "__main__":
     while augment_all():
         shuffle()
         pass
+
+    assert dataloader.check_cap()
+    assert dataloader.check_no_block_conflicts()
 
     new_schedules = {}
     for student in dataloader.students:
@@ -133,20 +143,21 @@ if __name__ == "__main__":
         removed = old - new
         added = new - old
 
-        print("-" * 80)
-        print(f"Student {i}:")
-        print(f"Dropped {removed}")
-        print(f"Added {added}")
-        print(f"Requests: {student.drops}")
+        if False:
+            print("-" * 80)
+            print(f"Student {i}:")
+            print(f"Dropped: {removed}")
+            print(f"Added: {added}")
+            print(f"Requests: {student.drops}")
         # check if there is a course conflict in new schedule
         # 135 our error
-        assert dataloader.check_no_block_conflict(dataloader.students[i])
         assert len(removed) == len(added), f"Student {i} cooked"
         fulfilled_requests += len(removed)
 
     swr = dataloader.students_with_requests
     fraction_fullfilled = (swr - unfulfilled_students) / swr
     print("-" * 80)
+    print(f"Edges: {edges}")
     print(f"Filled {fulfilled_requests} out of {dataloader.good_reqs} requests.")
     print(f"Students with requests considered: {swr}.")
     print(f"There were {unfulfilled_students} students with no request satisfied.")

@@ -132,6 +132,14 @@ with open("requests.csv") as f:
 students_with_requests = len(list(filter(lambda s: s.drops, students)))
 
 
+def check_cap() -> bool:
+    for course in courses:
+        if course.enrolled > course.max_enrollment:
+            print("EXCEED CAP", course)
+            return False
+    return True
+
+
 def check_valid_courses() -> bool:
     """Check whether all main+alts exist in course_dict and not their courses."""
     for i, s in enumerate(students):
@@ -176,5 +184,6 @@ if __name__ == "__main__":
     print("good requests:", good_reqs)
     print("bad requests:", len(bad_reqs))
 
+    assert check_cap()
     assert check_valid_courses()
     assert check_no_block_conflicts()
