@@ -167,8 +167,7 @@ def augment(
         weight_next = weight + edge.weight
         edge.student.schedule.toggle(edge.start)
         del edge.student.courses[edge.start.id]
-        if edge.primary:
-            edge.family.used = True
+        edge.family.used = edge.primary
         edge.enable = False
         edge.other.enable = True
 
@@ -184,8 +183,7 @@ def augment(
         path.pop()
         edge.student.schedule.toggle(edge.start)
         edge.student.courses[edge.start.id] = edge.start
-        if edge.primary:
-            edge.family.used = False
+        edge.family.used = not edge.primary
         edge.enable = True
         edge.other.enable = False
     return False
