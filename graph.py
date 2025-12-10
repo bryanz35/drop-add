@@ -111,15 +111,11 @@ def apply_path(path: list[Edge]) -> bool:
     return True
 
 
-# global schedule new and course new
-# backtrack drops
-# set enrollment in augment_all
-# edges in reverse (filter augment all to vacant)
 def augment(
-    start: Vertex, depth: int = MAX_LENGTH, weight: int = 0, path: list[Edge] = []
+    end: Vertex, depth: int = MAX_LENGTH, weight: int = 0, path: list[Edge] = []
 ) -> bool:
     """Find and apply augmenting path (DFS + backtracking)."""
-    for edge in start.indeg:
+    for edge in end.indeg:
         if not edge.enable or edge.start.id not in edge.student.courses:
             continue
 
