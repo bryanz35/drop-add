@@ -69,12 +69,11 @@ with open("schedules.csv") as f:
         id = int(row[0][1:])
         instance = int(row[5][len(row[3]) + 1 :])
         course = course_dict[row[3]][instance]
-        if students[id].schedule.conflict(course):
+        if students[id].schedule.conflict(course) or students[id].has(course.id):
             blacklist.add(id)
         else:
-            students[id].schedule.toggle(course)
             course.enrolled += 1
-            students[id].courses[course.id] = course
+            students[id].add(course)
 
 
 # increase caps for courses that currently exceed cap
@@ -105,7 +104,7 @@ with open("requests.csv") as f:
                     None
                     if is_none(cid)
                     or cid in students[id].drop_set
-                    or (not drop and cid in students[id].courses)
+                    or (not drop and students[id].has(cid))
                     else cid
                 )
 
@@ -132,7 +131,7 @@ with open("requests.csv") as f:
                         students[id].drop_set.remove(drop)
                     continue
 
-            if drop not in students[id].courses:  # see README
+            if drop is None or not students[id].has(drop):  # see README
                 bad_reqs.append([id] + request)
                 continue
 
@@ -160,14 +159,14 @@ def check_enrollment() -> bool:
     return True
 
 
-def check_valid_courses() -> bool:
+def check_valid_requests() -> bool:
     """Check whether all main+alts exist in course_dict and not their courses."""
     for i, s in enumerate(students):
         drops = set()
         adds = set()
         for d in s.drops:
             drops.add(d.drop)
-            if d.drop not in s.courses:
+            if not s.has(d.drop):
                 print("CANNOT DROP", i, d)
                 return False
             for cid in [d.main] + d.alts:
@@ -175,11 +174,14 @@ def check_valid_courses() -> bool:
                 if cid not in course_dict:
                     print("COURSE NOT FOUND", i, d)
                     return False
-                if cid in s.courses:
+                if s.has(cid):
                     print("ALREADY HAS", i, d)
                     return False
         if drops & adds:
-            print("OVERLAP", i, i)
+            print("OVERLAP", s)
+            return False
+        if len(drops) != len(s.drops):
+            print("DROP DUPE", s)
             return False
     return True
 
@@ -192,7 +194,7 @@ def check_no_block_conflict(student: Student) -> bool:
     schedule = defaultdict(int)
     for course in student.courses.values():
         if schedule[course.block] & course.days != 0:
-            print("BLOCK CONFLICT", id, student.courses)
+            print("BLOCK CONFLICT", student)
             return False
         schedule[course.block] |= course.days
     return True
@@ -207,7 +209,7 @@ def check_no_block_conflicts() -> bool:
 
 
 assert check_enrollment()
-assert check_valid_courses()
+assert check_valid_requests()
 assert check_no_block_conflicts()
 
 if __name__ == "__main__":

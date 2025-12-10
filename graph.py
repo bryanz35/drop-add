@@ -66,6 +66,7 @@ ALT_WEIGHT = 10
 SWAP_WEIGHT = -1
 
 for student in dataloader.students:
+    # add edges for course swaps
     for id, course in student.courses.items():
         swap_family = EdgeFamily()
         for _, course_instance in dataloader.course_dict[id].items():
@@ -75,15 +76,16 @@ for student in dataloader.students:
             ):
                 add_edge(swap_family, student, course, course_instance, SWAP_WEIGHT)
 
+    # add edges from each drop
     for drop in student.drops:
-        drop_course = student.courses[drop.drop]
+        drop_instance = student.courses[drop.drop]
         main = dataloader.course_dict[drop.main]
         drop_family = EdgeFamily()
         for _, main_instance in main.items():
             add_edge(
                 drop_family,
                 student,
-                student.courses[drop.drop],
+                drop_instance,
                 main_instance,
                 MAIN_WEIGHT,
             )
@@ -93,7 +95,7 @@ for student in dataloader.students:
                 add_edge(
                     drop_family,
                     student,
-                    student.courses[drop.drop],
+                    drop_instance,
                     alt_instance,
                     ALT_WEIGHT,
                 )
@@ -114,31 +116,29 @@ def shuffle() -> list[int]:
 
 def apply_path(path: list[Edge]) -> bool:
     """Augment's the graph with path. Returns false if unsuccessful (conflict)."""
-    # process add
+    # group edges by student
     student_edges: dict[Student, list[Edge]] = defaultdict(list)
     for edge in path:
         student_edges[edge.student].append(edge)
 
+    # process adds
     for student, edges in student_edges.items():
         schedule = copy.deepcopy(student.schedule)
         courses = student.courses.copy()
         for edge in edges:
             if schedule.conflict(edge.end) or edge.end.id in courses:
                 return False
+            schedule.toggle(edge.end)
 
     # apply changes
     for edge in path:
-        edge.student.schedule.toggle(edge.end)
-        edge.student.courses[edge.end.id] = edge.end
+        edge.student.add(edge.end)
         edge.start.enrolled -= 1
         edge.end.enrolled += 1
 
     print(list(reversed(path)))
     assert dataloader.check_enrollment()
     return True
-
-
-KICK = dataloader.course_dict["CH4120"][7]
 
 
 def augment(
@@ -150,42 +150,34 @@ def augment(
             edge == prev
             or not edge.enable
             or (edge.primary and edge.family.used)
-            or edge.start.id not in edge.student.courses
+            or not edge.student.has(edge.start.id)
         ):
             continue
 
-        if edge.start == KICK:
-            cnt = 0
-            for student in dataloader.students:
-                for course in student.courses.values():
-                    if course == KICK:
-                        cnt += 1
-            print(edge)
-            print("COUNT", cnt)
-
+        # add edge to current path
         path = path + [edge]
         weight_next = weight + edge.weight
-        edge.student.schedule.toggle(edge.start)
-        del edge.student.courses[edge.start.id]
+        edge.student.remove(edge.start)
         edge.family.used = edge.primary
         edge.enable = False
         edge.other.enable = True
 
+        # try current path
         if weight_next > 0 and path[0].end.has_space():
             if apply_path(path):
                 return True
 
+        # extend path
         if depth > 1:
             if augment(vertices[edge.start.i], depth - 1, weight_next, path, edge):
                 return True
 
         # backtrack
-        path.pop()
-        edge.student.schedule.toggle(edge.start)
-        edge.student.courses[edge.start.id] = edge.start
-        edge.family.used = not edge.primary
-        edge.enable = True
         edge.other.enable = False
+        edge.enable = True
+        edge.family.used = not edge.primary
+        edge.student.add(edge.start)
+        path.pop()
     return False
 
 
@@ -195,6 +187,7 @@ def augment_all(order: list[int]):
     for i in order:
         if augment(vertices[i], MAX_LENGTH, 0, [], None):
             changed = True
+        assert dataloader.check_enrollment()
     print("Changed: " + str(changed))
     return changed
 

@@ -43,6 +43,8 @@ class Schedule:
         return self.blocks[course.block] & course.days != 0
 
     def toggle(self, course: Course):
+        common = self.blocks[course.block] & course.days
+        assert common == 0 or common == course.days
         self.blocks[course.block] ^= course.days
 
 
@@ -56,6 +58,22 @@ class Student:
 
     def __repr__(self):
         return f"Student({pformat(self.courses)})"
+
+    def has(self, cid: str) -> bool:
+        """Returns whether student has a course with id cid."""
+        return cid in self.courses
+
+    def add(self, course: Course):
+        """Adds course to the student's course list."""
+        assert not self.has(course.id)
+        self.courses[course.id] = course
+        self.schedule.toggle(course)
+
+    def remove(self, course: Course):
+        """Removes course from the student's course list."""
+        assert self.has(course.id)
+        del self.courses[course.id]
+        self.schedule.toggle(course)
 
 
 class Drop:
