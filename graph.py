@@ -1,5 +1,4 @@
 import copy
-import json
 import random
 from collections import defaultdict
 
@@ -147,7 +146,7 @@ def augment(
     """Find and apply augmenting path (DFS + backtracking)."""
     for edge in end.indeg:
         if (
-            edge == prev
+            (prev and edge == prev.other)  # don't undo previous edge
             or not edge.enable
             or (edge.primary and edge.family.used)
             or not edge.student.has(edge.start.id)
@@ -243,4 +242,5 @@ if __name__ == "__main__":
     print(f"Hall of shame: {sorted(dataloader.blacklist)}.")
 
     with open("processed.json", "w") as f:
-        json.dump(dataloader.students, f)
+        for student in dataloader.students:
+            print(student, file=f)

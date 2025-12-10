@@ -57,7 +57,7 @@ class Student:
         self.drop_set: set[str] = set()
 
     def __repr__(self):
-        return f"Student({pformat(self.courses)})"
+        return "Student(\n" + pformat(self.courses) + "\n)"
 
     def has(self, cid: str) -> bool:
         """Returns whether student has a course with id cid."""
