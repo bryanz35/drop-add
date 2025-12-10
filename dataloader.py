@@ -69,11 +69,12 @@ with open("schedules.csv") as f:
         id = int(row[0][1:])
         instance = int(row[5][len(row[3]) + 1 :])
         course = course_dict[row[3]][instance]
-        if students[id].schedule.conflict(course) or students[id].has(course.id):
+        if students[id].schedule.conflict(course) or students[id].has_id(course.id):
             blacklist.add(id)
         else:
             course.enrolled += 1
             students[id].add(course)
+            students[id].schedule.assert_sync(students[id].courses)
 
 
 # increase caps for courses that currently exceed cap
@@ -104,7 +105,8 @@ with open("requests.csv") as f:
                     None
                     if is_none(cid)
                     or cid in students[id].drop_set
-                    or (not drop and students[id].has(cid))
+                    or (not drop and students[id].has_id(cid))
+                    or (drop and not students[id].has_id(cid))
                     else cid
                 )
 
@@ -129,7 +131,8 @@ with open("requests.csv") as f:
                         students[id].drop_set.remove(drop)
                     continue
 
-            if drop is None or not students[id].has(drop):  # see README
+            # no empty drop requests
+            if drop is None:  # see README
                 bad_reqs.append([id] + request)
                 if drop:
                     students[id].drop_set.remove(drop)
@@ -166,7 +169,7 @@ def check_valid_requests() -> bool:
         adds = set()
         for d in s.drops:
             drops.add(d.drop)
-            if not s.has(d.drop):
+            if not s.has_id(d.drop):
                 print("CANNOT DROP", i, d)
                 return False
             for cid in [d.main] + d.alts:
@@ -174,7 +177,7 @@ def check_valid_requests() -> bool:
                 if cid not in course_dict:
                     print("COURSE NOT FOUND", i, d)
                     return False
-                if s.has(cid):
+                if s.has_id(cid):
                     print("ALREADY HAS", i, d)
                     return False
         if drops & adds:

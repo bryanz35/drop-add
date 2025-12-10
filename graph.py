@@ -3,7 +3,7 @@ import random
 from collections import defaultdict
 
 import dataloader
-from objects import Course, Student
+from objects import Course, Schedule, Student
 
 
 class EdgeFamily:
@@ -59,10 +59,9 @@ def add_edge(
 
 
 vertices: list[Vertex] = [Vertex(course) for course in dataloader.courses]
-MAX_LENGTH = 3  # limit on augmenting path lengths
-MAIN_WEIGHT = 50
-ALT_WEIGHT = 10
-SWAP_WEIGHT = -1
+MAX_LENGTH = 6  # limit on augmenting path lengths
+MAIN_WEIGHT = 10
+ALT_WEIGHT = 2
 
 for student in dataloader.students:
     # add edges from each drop
@@ -103,6 +102,37 @@ def shuffle() -> list[int]:
     return order
 
 
+def find_patch(
+    schedule: Schedule, courses: dict[str, Course], bad: Course
+) -> tuple[Course, Course] | None:
+    """Try to apply swap patch when bad conflicts with schedule."""
+    # find courses that conflict
+    conflicts = []
+    for course in courses.values():
+        if course.conflict(bad):
+            conflicts.append(course)
+
+    # we don't care about patching more than once
+    if len(conflicts) > 1:
+        return None
+
+    assert conflicts, (schedule, courses, bad)  # conflicts shouldn't be empty
+    course = conflicts[0]
+    # find swaps
+    for cswap in dataloader.course_dict[course.id].values():
+        if bad.conflict(cswap) or schedule.conflict(cswap):
+            continue
+
+        # apply patch
+        if cswap.has_space():
+            courses[course.id] = cswap
+            schedule.toggle(course)
+            schedule.toggle(cswap)
+            return course, cswap
+
+    return None
+
+
 def apply_path(path: list[Edge]) -> bool:
     """Augment's the graph with path. Returns false if unsuccessful (conflict)."""
     # group edges by student
@@ -111,24 +141,35 @@ def apply_path(path: list[Edge]) -> bool:
         student_edges[edge.student].append(edge)
 
     # process adds
+    patches: list[tuple[Course, Course]] = []
+    updates: list[tuple[Schedule, dict[str, Course]]] = []
     for student, edges in student_edges.items():
         schedule = copy.deepcopy(student.schedule)
         courses = student.courses.copy()
         for edge in edges:
-            if schedule.conflict(edge.end) or edge.end.id in courses:
+            if edge.end.id in courses:
                 return False
+            if schedule.conflict(edge.end):
+                patch = find_patch(schedule, courses, edge.end)
+                if patch is None:
+                    return False
+                patches.append(patch)
+
             schedule.toggle(edge.end)
             courses[edge.end.id] = edge.end
+        schedule.assert_sync(courses)
+        updates.append((schedule, courses))
 
-    # apply changes
-    for edge in path:
-        edge.student.add(edge.end)
-        edge.start.enrolled -= 1
-        edge.end.enrolled += 1
+    # apply changes to schedules, courses, and enrollments
+    for i, (student, edges) in enumerate(student_edges.items()):
+        student.schedule, student.courses = updates[i]
+        for edge in edges:
+            edge.start.enrolled -= 1
+            edge.end.enrolled += 1
+    for course, cswap in patches:
+        course.enrolled -= 1
+        cswap.enrolled += 1
 
-    for edge in path:
-        assert edge.start.enrolled <= edge.start.max_enrollment
-    assert path[-1].end.enrolled <= path[-1].end.max_enrollment
     assert dataloader.check_enrollment()
     return True
 
@@ -141,7 +182,7 @@ def augment(start: Vertex, depth: int, weight: int, path: list[Edge]) -> bool:
             (path and edge == path[-1].other)  # don't undo previous edge
             or not edge.enable
             or (edge.primary and edge.family.used and not same_family_as_last)
-            or not edge.student.has(edge.start.id)
+            or not edge.student.has_course(edge.start)
         ):
             continue
 
@@ -152,6 +193,7 @@ def augment(start: Vertex, depth: int, weight: int, path: list[Edge]) -> bool:
         edge.family.used = edge.primary
         edge.enable = False
         edge.other.enable = True
+        edge.student.schedule.assert_sync(edge.student.courses)
 
         # try current path
         if weight_next > 0 and path[-1].end.has_space():
@@ -204,26 +246,15 @@ if __name__ == "__main__":
     unfulfilled_students = 0
     conflict_ids = set()
     for i, student in enumerate(dataloader.students):
-        old = set(old_schedules[i].values())
-        new = set(new_schedules[i].values())
-        if old == new:
-            if student.drops:
-                unfulfilled_students += 1
+        if not student.drops:
             continue
-
-        removed = old - new
-        added = new - old
-
-        # print("-" * 80)
-        # print(f"Student {i}:")
-        # print(f"Dropped: {removed}")
-        # print(f"Added: {added}")
-        # print(f"Requests: {student.drops}")
-
-        # check if there is a course conflict in new schedule
-        # 135 our error
-        assert len(removed) == len(added), f"Student {i} cooked"
-        fulfilled_requests += len(removed)
+        fulfilled = False
+        for drop in student.drops:
+            if not student.has_id(drop.drop):
+                fulfilled_requests += 1
+                fulfilled = True
+        if not fulfilled:
+            unfulfilled_students += 1
 
     swr = dataloader.students_with_requests
     fraction_fullfilled = (swr - unfulfilled_students) / swr

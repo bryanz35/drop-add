@@ -34,18 +34,34 @@ class Course:
     def has_space(self) -> bool:
         return self.enrolled < self.max_enrollment
 
+    def conflict(self, course: "Course") -> int:
+        if self.block == course.block:
+            return self.days & course.days
+        return 0
+
 
 class Schedule:
     def __init__(self) -> None:
         self.blocks: dict[str, int] = defaultdict(int)
 
-    def conflict(self, course: Course):
+    def __repr__(self) -> str:
+        return f"Schedule({self.blocks})"
+
+    def conflict(self, course: Course) -> bool:
         return self.blocks[course.block] & course.days != 0
 
     def toggle(self, course: Course):
         common = self.blocks[course.block] & course.days
         assert common == 0 or common == course.days
         self.blocks[course.block] ^= course.days
+
+    def assert_sync(self, courses: dict[str, Course]):
+        blocks: dict[str, int] = defaultdict(int)
+        for course in courses.values():
+            assert blocks[course.block] & course.days == 0, "Overlap detected"
+            blocks[course.block] |= course.days
+        for k, v in blocks.items():
+            assert v == self.blocks[k], "Not synced"
 
 
 class Student:
@@ -59,19 +75,22 @@ class Student:
     def __repr__(self):
         return "Student(\n" + pformat(self.courses) + "\n)"
 
-    def has(self, cid: str) -> bool:
+    def has_id(self, cid: str) -> bool:
         """Returns whether student has a course with id cid."""
         return cid in self.courses
 
+    def has_course(self, course: Course) -> bool:
+        """Returns whether student has course."""
+        return self.courses.get(course.id) == course
+
     def add(self, course: Course):
         """Adds course to the student's course list."""
-        assert not self.has(course.id)
+        assert not self.has_id(course.id)
         self.courses[course.id] = course
         self.schedule.toggle(course)
 
     def remove(self, course: Course):
         """Removes course from the student's course list."""
-        assert self.has(course.id)
         del self.courses[course.id]
         self.schedule.toggle(course)
 
