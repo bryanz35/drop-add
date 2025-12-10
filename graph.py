@@ -108,9 +108,7 @@ def apply_path(path: list[Edge]) -> bool:
     return True
 
 
-def augment(
-    end: Vertex, depth: int = MAX_LENGTH, weight: int = 0, path: list[Edge] = []
-) -> bool:
+def augment(end: Vertex, depth: int, weight: int, path: list[Edge]) -> bool:
     """Find and apply augmenting path (DFS + backtracking)."""
     for edge in end.indeg:
         if not edge.enable or edge.start.id not in edge.student.courses:
@@ -140,9 +138,10 @@ def augment_all(order: list[int]):
     """Perform augmenting path search for all vertices."""
     changed = False
     for i in order:
-        if augment(vertices[i]):
+        if augment(vertices[i], MAX_LENGTH, 0, []):
             changed = True
             print(i)
+    assert dataloader.check_enrollment()
     print("Changed: " + str(changed))
     return changed
 
