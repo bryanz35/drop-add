@@ -52,6 +52,7 @@ class Student:
         self.schedule = Schedule()
         self.courses: dict[str, Course] = {}
         self.drops: list[Drop] = []
+        self.drop_set: set[str] = set()
 
     def __repr__(self):
         return f"Student({pformat(self.courses)})"

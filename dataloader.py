@@ -103,11 +103,16 @@ with open("requests.csv") as f:
                 cid = request[i].split(" ")[0]
                 return (
                     None
-                    if is_none(cid) or (not drop and cid in students[id].courses)
+                    if is_none(cid)
+                    or cid in students[id].drop_set
+                    or (not drop and cid in students[id].courses)
                     else cid
                 )
 
             drop = get_id(0, True)
+            if drop:
+                students[id].drop_set.add(drop)
+
             main = get_id(1)
             if main == drop:
                 main = None
@@ -124,11 +129,13 @@ with open("requests.csv") as f:
                     # do not allow only drop -> underload
                     if drop:
                         bad_reqs.append([id] + request)
+                        students[id].drop_set.remove(drop)
                     continue
 
             if drop not in students[id].courses:  # see README
                 bad_reqs.append([id] + request)
                 continue
+
             good_reqs += 1
             students[id].drops.append(Drop(drop, main, alts))
 

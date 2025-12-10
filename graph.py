@@ -126,7 +126,7 @@ def augment(
                 return True
 
         if depth > 1:
-            if augment(vertices[edge.start.i], depth - 1, weight_next):
+            if augment(vertices[edge.start.i], depth - 1, weight_next, path):
                 return True
 
         # backtrack
