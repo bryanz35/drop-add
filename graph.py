@@ -260,6 +260,7 @@ if __name__ == "__main__":
     fraction_fullfilled = (swr - unfulfilled_students) / swr
     print("-" * 80)
     print(f"Edges: {edges}")
+    print(f"MAX_LENGTH: {MAX_LENGTH}")
     print(f"Filled {fulfilled_requests} out of {dataloader.good_reqs} requests.")
     print(f"Students with requests considered: {swr}.")
     print(f"There were {unfulfilled_students} students with no request satisfied.")
