@@ -72,10 +72,7 @@ def shuffle() -> list[int]:
     for vertex in vertices:
         random.shuffle(vertex.indeg)
 
-    order = []
-    for i, course in enumerate(dataloader.courses):
-        if not course.full():
-            order.append(i)
+    order = list(range(len(dataloader.courses)))
     random.shuffle(order)
     return order
 
@@ -124,7 +121,7 @@ def augment(
         edge.student.schedule.toggle(edge.start)
         del edge.student.courses[edge.start.id]
 
-        if weight_next > 0:
+        if weight_next > 0 and path[0].end.has_space():
             if apply_path(path):
                 return True
 

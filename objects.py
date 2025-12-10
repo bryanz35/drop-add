@@ -31,8 +31,8 @@ class Course:
             + f", {self.enrolled}/{self.max_enrollment})"
         )
 
-    def full(self) -> bool:
-        return self.enrolled == self.max_enrollment
+    def has_space(self) -> bool:
+        return self.enrolled < self.max_enrollment
 
 
 class Schedule:

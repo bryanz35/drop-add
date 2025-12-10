@@ -154,13 +154,24 @@ def check_enrollment() -> bool:
 def check_valid_courses() -> bool:
     """Check whether all main+alts exist in course_dict and not their courses."""
     for i, s in enumerate(students):
+        drops = set()
+        adds = set()
         for d in s.drops:
-            if any(
-                course not in course_dict or course in s.courses
-                for course in [d.main] + d.alts
-            ):
-                print("INVALID", i, d)
+            drops.add(d.drop)
+            if d.drop not in s.courses:
+                print("CANNOT DROP", i, d)
                 return False
+            for cid in [d.main] + d.alts:
+                adds.add(cid)
+                if cid not in course_dict:
+                    print("COURSE NOT FOUND", i, d)
+                    return False
+                if cid in s.courses:
+                    print("ALREADY HAS", i, d)
+                    return False
+        if drops & adds:
+            print("OVERLAP", i, i)
+            return False
     return True
 
 
