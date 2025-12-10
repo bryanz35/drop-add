@@ -150,8 +150,9 @@ def check_enrollment() -> bool:
             count[(course.id, course.instance)] += 1
 
     for course in courses:
-        if course.enrolled != count[(course.id, course.instance)]:
-            print("WRONG ENROLLMENT", course)
+        cnt = count[(course.id, course.instance)]
+        if course.enrolled != cnt:
+            print("WRONG ENROLLMENT", cnt, course)
             return False
         if course.enrolled > course.max_enrollment:
             print("EXCEED CAP", course)
