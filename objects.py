@@ -33,30 +33,26 @@ class Course:
         return f"Course({self.id}, {self.block}{days[::-1]})"
 
 
+class Schedule:
+    def __init__(self) -> None:
+        self.blocks: dict[str, int] = defaultdict(int)
+
+    def conflict(self, course: Course):
+        return self.blocks[course.block] & course.days != 0
+
+    def toggle(self, course: Course):
+        self.blocks[course.block] ^= course.days
+
+
 class Student:
     def __init__(self, id: int):
         self.id = id
-        self.schedule = defaultdict(int)
+        self.schedule = Schedule()
         self.courses: dict[str, Course] = {}
         self.drops: list[Drop] = []
 
     def __repr__(self):
         return f"Student({pformat(self.courses)})"
-
-    def get(self, id: str) -> Course | None:
-        return self.courses.get(id)
-
-    def conflict(self, course: Course) -> bool:
-        return self.schedule[course.block] & course.days != 0
-
-    def toggle_course(self, course: Course, remove: bool):
-        self.schedule[course.block] ^= course.days
-        if remove:
-            course.enrolled -= 1
-            del self.courses[course.id]
-        else:
-            course.enrolled += 1
-            self.courses[course.id] = course
 
 
 class Drop:

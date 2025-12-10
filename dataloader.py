@@ -69,10 +69,13 @@ with open("schedules.csv") as f:
         id = int(row[0][1:])
         instance = int(row[5][len(row[3]) + 1 :])
         course = course_dict[row[3]][instance]
-        if students[id].conflict(course):
+        if students[id].schedule.conflict(course):
             blacklist.add(id)
         else:
-            students[id].toggle_course(course, remove=False)
+            students[id].schedule.toggle(course)
+            course.enrolled += 1
+            students[id].courses[course.id] = course
+
 
 # increase caps for courses that currently exceed cap
 for course in courses:
