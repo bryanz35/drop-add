@@ -135,8 +135,16 @@ with open("requests.csv") as f:
 students_with_requests = len(list(filter(lambda s: s.drops, students)))
 
 
-def check_cap() -> bool:
+def check_enrollment() -> bool:
+    """Checks enrollment of every course is accurate and at most the cap."""
+    count: dict[tuple[str, int], int] = defaultdict(int)
+    for student in students:
+        for course in student.courses.values():
+            count[(course.id, course.instance)] += 1
+
     for course in courses:
+        if course.enrolled != count[(course.id, course.instance)]:
+            print("WRONG ENROLLMENT", course)
         if course.enrolled > course.max_enrollment:
             print("EXCEED CAP", course)
             return False
@@ -178,6 +186,10 @@ def check_no_block_conflicts() -> bool:
     return True
 
 
+assert check_enrollment()
+assert check_valid_courses()
+assert check_no_block_conflicts()
+
 if __name__ == "__main__":
     print("courses:", len(courses))
     print("distinct:", len(course_dict))
@@ -186,7 +198,3 @@ if __name__ == "__main__":
     print("students with request:", students_with_requests)
     print("good requests:", good_reqs)
     print("bad requests:", len(bad_reqs))
-
-    assert check_cap()
-    assert check_valid_courses()
-    assert check_no_block_conflicts()

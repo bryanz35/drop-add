@@ -32,3 +32,8 @@ Limitations:
   However, the ones with constraints should be done first and given priority.
   This means some requests that shouldn't be fulfilled are granted,
   and some requests that could be fulfilled aren't.
+
+Optimizations:
+
+- Do not add 0 weight edges between courses with the same id and meeting pattern
+- Search from the end of path, only augment from courses that are not full

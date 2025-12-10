@@ -1,5 +1,7 @@
 import copy
+import json
 import random
+from collections import defaultdict
 
 import dataloader
 from objects import Course, Schedule, Student
@@ -14,15 +16,11 @@ class Edge:
         self.enable = False
         self.other: Edge
 
-    def use(self):
-        self.enable = False
-        self.other.enable = True
-
 
 class Vertex:
     def __init__(self, course: Course):
         self.course = course
-        self.out: list[Edge] = []
+        self.indeg: list[Edge] = []
 
 
 edges = 0
@@ -37,13 +35,12 @@ def add_edge(student: Student, start: Course, end: Course, weight: int):
     forward.other = back
     back.other = forward
 
-    vertices[start.i].out.append(forward)
-    vertices[end.i].out.append(back)
+    vertices[start.i].indeg.append(back)
+    vertices[end.i].indeg.append(forward)
 
 
 vertices: list[Vertex] = [Vertex(course) for course in dataloader.courses]
-order = list(range(len(vertices)))
-MAX_LENGTH = 3  # limit on augmenting path lengths
+MAX_LENGTH = 2  # limit on augmenting path lengths
 MAIN_WEIGHT = 10
 ALT_WEIGHT = 2
 
@@ -67,70 +64,91 @@ for student in dataloader.students:
                 add_edge(student, student.courses[drop.drop], alt_instance, ALT_WEIGHT)
 
 
-def shuffle():
+random.seed(1434)
+
+
+def shuffle() -> list[int]:
     """Randomize search order for fairness."""
-    random.shuffle(order)
     for vertex in vertices:
-        random.shuffle(vertex.out)
+        random.shuffle(vertex.indeg)
+
+    order = []
+    for i, course in enumerate(dataloader.courses):
+        if not course.full():
+            order.append(i)
+    random.shuffle(order)
+    return order
 
 
 def apply_path(path: list[Edge]) -> bool:
     """Augment's the graph with path. Returns false if unsuccessful (conflict)."""
-    schedule_new: dict[int, Schedule] = {}
-    # process drop
-    for e in path:
-        if e.student.id not in schedule_new:
-            schedule_new[e.student.id] = copy.deepcopy(e.student.schedule)
-        schedule_new[e.student.id].toggle(e.start)
     # process add
-    for e in path:
-        if schedule_new[e.student.id].conflict(e.end):
-            return False
-        schedule_new[e.student.id].toggle(e.end)
+    student_edges: dict[Student, list[Edge]] = defaultdict(list)
+    for edge in path:
+        student_edges[edge.student].append(edge)
+
+    updates: list[tuple[Schedule, dict[str, Course]]] = []
+    for student, edges in student_edges.items():
+        schedule = copy.deepcopy(student.schedule)
+        courses = copy.deepcopy(student.courses)
+        for edge in edges:
+            if schedule.conflict(edge.end) or edge.end.id in courses:
+                return False
+            schedule.toggle(edge.end)
+            courses[edge.end.id] = edge.end
+        updates.append((schedule, courses))
 
     # apply changes
-    for sid, schedule in schedule_new.items():
-        dataloader.students[sid].schedule = schedule
-    for e in path:
-        del e.student.courses[e.start.id]
-        e.student.courses[e.end.id] = e.end
-    path[0].start.enrolled -= 1
-    path[-1].end.enrolled += 1
+    for i, student in enumerate(student_edges):
+        student.schedule = updates[i][0]
+        student.courses = updates[i][1]
+    for edge in path:
+        edge.enable = False
+        edge.other.enable = True
+    path[0].end.enrolled += 1
+    path[-1].start.enrolled -= 1
 
     return True
 
 
+# global schedule new and course new
+# backtrack drops
+# set enrollment in augment_all
+# edges in reverse (filter augment all to vacant)
 def augment(
     start: Vertex, depth: int = MAX_LENGTH, weight: int = 0, path: list[Edge] = []
 ) -> bool:
     """Find and apply augmenting path (DFS + backtracking)."""
-
-    for edge in start.out:
+    for edge in start.indeg:
         if not edge.enable or edge.start.id not in edge.student.courses:
             continue
+
         path = path + [edge]
         weight_next = weight + edge.weight
+        edge.student.schedule.toggle(edge.start)
+        del edge.student.courses[edge.start.id]
 
-        if weight_next > 0 and edge.end.enrolled < edge.end.max_enrollment:
+        if weight_next > 0:
             if apply_path(path):
                 return True
 
         if depth > 1:
-            if augment(vertices[edge.end.i], depth - 1, weight_next, path):
+            if augment(vertices[edge.start.i], depth - 1, weight_next):
                 return True
 
+        # backtrack
         path.pop()
+        edge.student.schedule.toggle(edge.start)
+        edge.student.courses[edge.start.id] = edge.start
     return False
 
 
-def augment_all():
+def augment_all(order: list[int]):
     """Perform augmenting path search for all vertices."""
     changed = False
-    print(order)
     for i in order:
-        result = augment(vertices[i])
-        changed |= result
-        if result:
+        if augment(vertices[i]):
+            changed = True
             print(i)
     print("Changed: " + str(changed))
     return changed
@@ -141,12 +159,10 @@ if __name__ == "__main__":
     for student in dataloader.students:
         old_schedules[student.id] = student.courses.copy()
 
-    shuffle()
-    while augment_all():
-        shuffle()
+    while augment_all(shuffle()):
         pass
 
-    assert dataloader.check_cap()
+    assert dataloader.check_enrollment()
     assert dataloader.check_no_block_conflicts()
 
     new_schedules = {}
@@ -187,3 +203,6 @@ if __name__ == "__main__":
     print(f"There were {unfulfilled_students} students with no request satisfied.")
     print(f"{fraction_fullfilled:.2%} of students got at least 1 request satisfied.")
     print(f"Hall of shame: {sorted(dataloader.blacklist)}.")
+
+    with open("processed.json", "w") as f:
+        json.dump(dataloader.students, f)

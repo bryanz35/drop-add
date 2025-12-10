@@ -32,6 +32,9 @@ class Course:
         # )
         return f"Course({self.id}, {self.block}{days[::-1]})"
 
+    def full(self) -> bool:
+        return self.enrolled == self.max_enrollment
+
 
 class Schedule:
     def __init__(self) -> None:
