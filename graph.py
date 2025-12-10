@@ -128,6 +128,7 @@ def apply_path(path: list[Edge]) -> bool:
             if schedule.conflict(edge.end) or edge.end.id in courses:
                 return False
             schedule.toggle(edge.end)
+            courses[edge.end.id] = edge.end
 
     # apply changes
     for edge in path:
@@ -143,10 +144,11 @@ def apply_path(path: list[Edge]) -> bool:
 def augment(end: Vertex, depth: int, weight: int, path: list[Edge]) -> bool:
     """Find and apply augmenting path (DFS + backtracking)."""
     for edge in end.indeg:
+        same_family_as_last = path and path[-1].family == edge.family
         if (
             (path and edge == path[-1].other)  # don't undo previous edge
             or not edge.enable
-            or (edge.primary and edge.family.used)
+            or (edge.primary and edge.family.used and not same_family_as_last)
             or not edge.student.has(edge.start.id)
         ):
             continue
