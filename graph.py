@@ -36,7 +36,7 @@ class Edge:
 class Vertex:
     def __init__(self, course: Course):
         self.course = course
-        self.indeg: list[Edge] = []
+        self.out: list[Edge] = []
 
 
 edges = 0
@@ -54,27 +54,17 @@ def add_edge(
     forward.other = back
     back.other = forward
 
-    vertices[start.i].indeg.append(back)
-    vertices[end.i].indeg.append(forward)
+    vertices[start.i].out.append(forward)
+    vertices[end.i].out.append(back)
 
 
 vertices: list[Vertex] = [Vertex(course) for course in dataloader.courses]
-MAX_LENGTH = 2  # limit on augmenting path lengths
+MAX_LENGTH = 3  # limit on augmenting path lengths
 MAIN_WEIGHT = 50
 ALT_WEIGHT = 10
 SWAP_WEIGHT = -1
 
 for student in dataloader.students:
-    # add edges for course swaps
-    for id, course in student.courses.items():
-        swap_family = EdgeFamily()
-        for _, course_instance in dataloader.course_dict[id].items():
-            if (
-                course.block != course_instance.block
-                or course.days != course_instance.days
-            ):
-                add_edge(swap_family, student, course, course_instance, SWAP_WEIGHT)
-
     # add edges from each drop
     for drop in student.drops:
         drop_instance = student.courses[drop.drop]
@@ -106,7 +96,7 @@ random.seed(1434)
 def shuffle() -> list[int]:
     """Randomize search order for fairness."""
     for vertex in vertices:
-        random.shuffle(vertex.indeg)
+        random.shuffle(vertex.out)
 
     order = list(range(len(dataloader.courses)))
     random.shuffle(order)
@@ -136,14 +126,16 @@ def apply_path(path: list[Edge]) -> bool:
         edge.start.enrolled -= 1
         edge.end.enrolled += 1
 
-    print(list(reversed(path)))
+    for edge in path:
+        assert edge.start.enrolled <= edge.start.max_enrollment
+    assert path[-1].end.enrolled <= path[-1].end.max_enrollment
     assert dataloader.check_enrollment()
     return True
 
 
-def augment(end: Vertex, depth: int, weight: int, path: list[Edge]) -> bool:
+def augment(start: Vertex, depth: int, weight: int, path: list[Edge]) -> bool:
     """Find and apply augmenting path (DFS + backtracking)."""
-    for edge in end.indeg:
+    for edge in start.out:
         same_family_as_last = path and path[-1].family == edge.family
         if (
             (path and edge == path[-1].other)  # don't undo previous edge
@@ -162,13 +154,13 @@ def augment(end: Vertex, depth: int, weight: int, path: list[Edge]) -> bool:
         edge.other.enable = True
 
         # try current path
-        if weight_next > 0 and path[0].end.has_space():
+        if weight_next > 0 and path[-1].end.has_space():
             if apply_path(path):
                 return True
 
         # extend path
         if depth > 1:
-            if augment(vertices[edge.start.i], depth - 1, weight_next, path):
+            if augment(vertices[edge.end.i], depth - 1, weight_next, path):
                 return True
 
         # backtrack
@@ -176,6 +168,7 @@ def augment(end: Vertex, depth: int, weight: int, path: list[Edge]) -> bool:
         edge.enable = True
         edge.family.used = not edge.primary
         edge.student.add(edge.start)
+        assert edge.start.enrolled <= edge.start.max_enrollment
         path.pop()
     return False
 
@@ -186,6 +179,7 @@ def augment_all(order: list[int]):
     for i in order:
         if augment(vertices[i], MAX_LENGTH, 0, []):
             changed = True
+            print(i)
         assert dataloader.check_enrollment()
     print("Changed: " + str(changed))
     return changed

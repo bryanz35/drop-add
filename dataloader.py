@@ -113,12 +113,10 @@ with open("requests.csv") as f:
                 students[id].drop_set.add(drop)
 
             main = get_id(1)
-            if main == drop:
-                main = None
             alts = []
-            if (alt := get_id(2)) and alt != drop:
+            if alt := get_id(2):
                 alts.append(alt)
-            if (alt := get_id(3)) and alt != drop:
+            if alt := get_id(3):
                 alts.append(alt)
 
             if main is None:
@@ -133,6 +131,8 @@ with open("requests.csv") as f:
 
             if drop is None or not students[id].has(drop):  # see README
                 bad_reqs.append([id] + request)
+                if drop:
+                    students[id].drop_set.remove(drop)
                 continue
 
             good_reqs += 1
@@ -180,8 +180,8 @@ def check_valid_requests() -> bool:
         if drops & adds:
             print("OVERLAP", s)
             return False
-        if len(drops) != len(s.drops):
-            print("DROP DUPE", s)
+        if len(drops) != len(s.drops) or len(drops) != len(s.drop_set):
+            print("DROP ERROR", s, s.drops, s.drop_set)
             return False
     return True
 
