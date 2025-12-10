@@ -1,8 +1,7 @@
-from collections import defaultdict
 import random
 
 import dataloader
-from objects import Course, Drop, Student
+from objects import Course, Student
 
 
 class Edge:
@@ -62,7 +61,9 @@ def shuffle():
         random.shuffle(vertex.out)
 
 
-def augment(start: Vertex, depth: int = MAX_LENGTH, weight: int = 0, students=set()) -> bool:
+def augment(
+    start: Vertex, depth: int = MAX_LENGTH, weight: int = 0, students=set()
+) -> bool:
     """Find and apply augmenting path (DFS + backtracking)."""
 
     for edge in start.out:
@@ -101,48 +102,53 @@ def augment_all():
         changed |= result
         # print(i, result)
     print("Changed: " + str(changed))
-    return changed 
-    
-def isvalid_schedule(student: Student) -> bool:
-    """Check if a student's schedule has any conflicts."""
-    schedule = defaultdict(int)
-    for course in student.courses.values():
-        if schedule[course.block] & course.days != 0:
-            return False
-        schedule[course.block] |= course.days
+    return changed
 
-    return True
-    
+
 if __name__ == "__main__":
     old_schedules = {}
     for student in dataloader.students:
         old_schedules[student.id] = student.courses.copy()
-    
+
     shuffle()
     while augment_all():
+        shuffle()
         pass
+
     new_schedules = {}
     for student in dataloader.students:
         new_schedules[student.id] = student.courses.copy()
-    
-    filled_requests = 0
+
+    fulfilled_requests = 0
+    unfulfilled_students = 0
     conflict_ids = set()
-    print("\nChanges:")
-    for i in range(len(dataloader.students)):
+    for i, student in enumerate(dataloader.students):
         old = set(old_schedules[i].values())
         new = set(new_schedules[i].values())
-        if old != new:
-            removed = old - new
-            added = new - old
+        if old == new:
+            if student.drops:
+                unfulfilled_students += 1
+            continue
 
-            print(f"Student {i}:")
-            print(f"Changes: Dropped {removed}, Added {added}")
-            print(f"Request: {dataloader.students[i].drops}")
-            # check if there is a course conflict in new schedule
-            # 135 our error
-            if i not in dataloader.blacklist: # those who ignore edge cases :)
-                assert isvalid_schedule(dataloader.students[i]), f"Conflict in schedule for student {i} with courses {new_schedules[i]}"
-            print("____________________________")
-            filled_requests += 1
-    print(f"Filled {filled_requests} out of {dataloader.good_reqs} requests.")
-    print(f"Hall of shame: {dataloader.blacklist}")
+        removed = old - new
+        added = new - old
+
+        print("-" * 80)
+        print(f"Student {i}:")
+        print(f"Dropped {removed}")
+        print(f"Added {added}")
+        print(f"Requests: {student.drops}")
+        # check if there is a course conflict in new schedule
+        # 135 our error
+        assert dataloader.check_no_block_conflict(dataloader.students[i])
+        assert len(removed) == len(added), f"Student {i} cooked"
+        fulfilled_requests += len(removed)
+
+    swr = dataloader.students_with_requests
+    fraction_fullfilled = (swr - unfulfilled_students) / swr
+    print("-" * 80)
+    print(f"Filled {fulfilled_requests} out of {dataloader.good_reqs} requests.")
+    print(f"Students with requests considered: {swr}.")
+    print(f"There were {unfulfilled_students} students with no request satisfied.")
+    print(f"{fraction_fullfilled:.2%} of students got at least 1 request satisfied.")
+    print(f"Hall of shame: {sorted(dataloader.blacklist)}.")

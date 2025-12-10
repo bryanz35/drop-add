@@ -17,6 +17,7 @@ bad_reqs = []
 blacklist: set[int] = set()
 good_reqs = 0
 
+
 def add_course(row: list[str]):
     global course_idx
     course = Course(
@@ -67,57 +68,50 @@ with open("schedules.csv") as f:
 
         id = int(row[0][1:])
         instance = int(row[5][len(row[3]) + 1 :])
-        students[id].toggle_course(course_dict[row[3]][instance], remove=False)
+        course = course_dict[row[3]][instance]
+        if students[id].conflict(course):
+            blacklist.add(id)
+        else:
+            students[id].toggle_course(course, remove=False)
 
-# exceeds cap
+# increase caps for courses that currently exceed cap
 for course in courses:
     course.max_enrollment = max(course.max_enrollment, course.enrolled)
 
-no_constraint = 0
-
-def clean_student_conflicts():
-    for s in students:
-        schedule = defaultdict(int)
-        for course in s.courses.values():
-            if schedule[course.block] & course.days != 0:
-                # add students to a blacklist          
-                blacklist.add(s.id)   
-            schedule[course.block] |= course.days
-
-clean_student_conflicts()
 with open("requests.csv") as f:
     reader = csv.reader(f)
     next(reader)  # skip headers
     for row in reader:
         id = int(row[0][1:])
-        if id in blacklist:
-            continue
         if row[3] != "None of these apply":
             continue
-        no_constraint += 1
 
         def is_none(s: str) -> bool:
             return s == "" or s == "None" or s in SKIP_REQUESTS
 
-        def get_id(i: int, drop=False) -> str | None:
-            cid = row[i].split(" ")[0]
-            return (
-                None
-                if is_none(cid) or (not drop and cid in students[id].courses)
-                else cid
-            )
-
         # valid drop add
         for group in range(4):
-            drop = get_id(4 * group + 4, True)
+            request = row[4 * group + 4 : 4 * group + 8]
+            if id in blacklist:
+                bad_reqs.append([id] + request)
+                continue
 
-            main = get_id(4 * group + 5)
+            def get_id(i: int, drop=False) -> str | None:
+                cid = request[i].split(" ")[0]
+                return (
+                    None
+                    if is_none(cid) or (not drop and cid in students[id].courses)
+                    else cid
+                )
+
+            drop = get_id(0, True)
+            main = get_id(1)
             if main == drop:
                 main = None
             alts = []
-            if (alt := get_id(4 * group + 6)) and alt != drop:
+            if (alt := get_id(2)) and alt != drop:
                 alts.append(alt)
-            if (alt := get_id(4 * group + 7)) and alt != drop:
+            if (alt := get_id(3)) and alt != drop:
                 alts.append(alt)
 
             if main is None:
@@ -126,14 +120,16 @@ with open("requests.csv") as f:
                 else:
                     # do not allow only drop -> underload
                     if drop:
-                        bad_reqs.append([id] + row[4 * group : 4 * group + 4])
+                        bad_reqs.append([id] + request)
                     continue
 
             if drop not in students[id].courses:  # see README
-                bad_reqs.append(row)
+                bad_reqs.append([id] + request)
                 continue
             good_reqs += 1
             students[id].drops.append(Drop(drop, main, alts))
+
+students_with_requests = len(list(filter(lambda s: s.drops, students)))
 
 
 def check_valid_courses() -> bool:
@@ -148,28 +144,37 @@ def check_valid_courses() -> bool:
                 return False
     return True
 
-def check_block_conflicts() -> bool:
+
+def check_no_block_conflict(student: Student) -> bool:
+    """Check whether a student's schedule has block conflicts."""
+    if student.id in blacklist:
+        return True
+
+    schedule = defaultdict(int)
+    for course in student.courses.values():
+        if schedule[course.block] & course.days != 0:
+            print("BLOCK CONFLICT", id, student.courses)
+            return False
+        schedule[course.block] |= course.days
+    return True
+
+
+def check_no_block_conflicts() -> bool:
     """Check whether any student's schedule has block conflicts."""
-    for i, s in enumerate(students):
-        if s.id in blacklist:
-            continue
-        schedule = defaultdict(int)
-        for course in s.courses.values():
-            if schedule[course.block] & course.days != 0:
-                print("BLOCK CONFLICT", i, s.courses)
-                return False
-            schedule[course.block] |= course.days
+    for student in students:
+        if not check_no_block_conflict(student):
+            return False
     return True
 
 
 if __name__ == "__main__":
-    print("blacklist:", len(blacklist))
     print("courses:", len(courses))
     print("distinct:", len(course_dict))
     print("ignored:", ignored)
-    print("students with request:", len(list(filter(lambda s: s.drops, students))))
-    print("students with no constraints:", no_constraint)
+    print("blacklist:", len(blacklist))
+    print("students with request:", students_with_requests)
+    print("good requests:", good_reqs)
     print("bad requests:", len(bad_reqs))
 
     assert check_valid_courses()
-    assert check_block_conflicts()
+    assert check_no_block_conflicts()

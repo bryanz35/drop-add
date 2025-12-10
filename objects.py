@@ -30,7 +30,7 @@ class Course:
         #     f"Course({self.id}, {self.instance}, {self.name}, {self.block}{days[::-1]}"
         #     + f", Cap: {self.max_enrollment}, Enrolled: {self.enrolled})"
         # )
-        return (f"Course({self.id}, {self.block}{days[::-1]}, ")
+        return f"Course({self.id}, {self.block}{days[::-1]})"
 
 
 class Student:
