@@ -71,9 +71,18 @@ class Student:
         self.courses: dict[str, Course] = {}
         self.drops: list[Drop] = []
         self.drop_set: set[str] = set()
+        self.fulfilled = 0
 
     def __repr__(self):
-        return "Student(\n" + pformat(self.courses) + "\n)"
+        return (
+            f"Student(id={self.id}, courses=\n"
+            + pformat(self.courses)
+            + ",\ndrops="
+            + pformat(self.drops)
+            + ",\nfulfilled="
+            + str(self.fulfilled)
+            + "\n)"
+        )
 
     def has_id(self, cid: str) -> bool:
         """Returns whether student has a course with id cid."""

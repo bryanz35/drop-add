@@ -103,7 +103,10 @@ def shuffle() -> list[int]:
 
 
 def find_patch(
-    schedule: Schedule, courses: dict[str, Course], bad: Course
+    schedule: Schedule,
+    courses: dict[str, Course],
+    bad: Course,
+    extra: dict[Course, int],
 ) -> tuple[Course, Course] | None:
     """Try to apply swap patch when bad conflicts with schedule."""
     # find courses that conflict
@@ -124,16 +127,17 @@ def find_patch(
             continue
 
         # apply patch
-        if cswap.has_space():
+        if cswap.enrolled + extra.get(cswap, 0) < cswap.max_enrollment:
             courses[course.id] = cswap
             schedule.toggle(course)
             schedule.toggle(cswap)
+            extra[cswap] += 1
             return course, cswap
 
     return None
 
 
-def apply_path(path: list[Edge]) -> bool:
+def apply_path(path: list[Edge], cycle: bool) -> bool:
     """Augment's the graph with path. Returns false if unsuccessful (conflict)."""
     # group edges by student
     student_edges: dict[Student, list[Edge]] = defaultdict(list)
@@ -143,6 +147,11 @@ def apply_path(path: list[Edge]) -> bool:
     # process adds
     patches: list[tuple[Course, Course]] = []
     updates: list[tuple[Schedule, dict[str, Course]]] = []
+    extra: dict[Course, int] = defaultdict(int)
+    if not cycle:
+        extra[path[0].start] = -1
+        extra[path[-1].end] = 1
+
     for student, edges in student_edges.items():
         schedule = copy.deepcopy(student.schedule)
         courses = student.courses.copy()
@@ -150,7 +159,7 @@ def apply_path(path: list[Edge]) -> bool:
             if edge.end.id in courses:
                 return False
             if schedule.conflict(edge.end):
-                patch = find_patch(schedule, courses, edge.end)
+                patch = find_patch(schedule, courses, edge.end, extra)
                 if patch is None:
                     return False
                 patches.append(patch)
@@ -161,11 +170,10 @@ def apply_path(path: list[Edge]) -> bool:
         updates.append((schedule, courses))
 
     # apply changes to schedules, courses, and enrollments
-    for i, (student, edges) in enumerate(student_edges.items()):
+    for i, student in enumerate(student_edges):
         student.schedule, student.courses = updates[i]
-        for edge in edges:
-            edge.start.enrolled -= 1
-            edge.end.enrolled += 1
+    path[0].start.enrolled -= 1
+    path[-1].end.enrolled += 1
     for course, cswap in patches:
         course.enrolled -= 1
         cswap.enrolled += 1
@@ -196,9 +204,13 @@ def augment(start: Vertex, depth: int, weight: int, path: list[Edge]) -> bool:
         edge.student.schedule.assert_sync(edge.student.courses)
 
         # try current path
-        if weight_next > 0 and path[-1].end.has_space():
-            if apply_path(path):
-                return True
+        if weight_next > 0:
+            if path[0].start == edge.end:
+                if apply_path(path, True):
+                    return True
+            elif path[-1].end.has_space():
+                if apply_path(path, False):
+                    return True
 
         # extend path
         if depth > 1:
@@ -252,6 +264,7 @@ if __name__ == "__main__":
         for drop in student.drops:
             if not student.has_id(drop.drop):
                 fulfilled_requests += 1
+                student.fulfilled += 1
                 fulfilled = True
         if not fulfilled:
             unfulfilled_students += 1
@@ -267,6 +280,6 @@ if __name__ == "__main__":
     print(f"{fraction_fullfilled:.2%} of students got at least 1 request satisfied.")
     print(f"Hall of shame: {sorted(dataloader.blacklist)}.")
 
-    with open("processed.json", "w") as f:
+    with open("processed.txt", "w") as f:
         for student in dataloader.students:
             print(student, file=f)
