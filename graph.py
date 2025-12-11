@@ -59,7 +59,7 @@ def add_edge(
 
 
 vertices: list[Vertex] = [Vertex(course) for course in dataloader.courses]
-MAX_LENGTH = 6  # limit on augmenting path lengths
+MAX_LENGTH = 5  # limit on augmenting path lengths
 MAIN_WEIGHT = 10
 ALT_WEIGHT = 2
 
@@ -89,7 +89,7 @@ for student in dataloader.students:
                 )
 
 
-random.seed(1434)
+random.seed(67)
 
 
 def shuffle() -> list[int]:
