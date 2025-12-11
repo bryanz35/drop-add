@@ -1,9 +1,9 @@
 # NCSSM Drop Add 2023-2024
 
 - Students with requests: 370
-- Students with no constraints: 263
-- Students to process: 226
-- Bad requests: 29
+- Students considered: 211
+- Students on blacklist (unreported block conflict): 78
+- Bad requests: 99
 
 Current edges cases:
 
@@ -32,8 +32,3 @@ Limitations:
   However, the ones with constraints should be done first and given priority.
   This means some requests that shouldn't be fulfilled are granted,
   and some requests that could be fulfilled aren't.
-
-Optimizations:
-
-- Do not add 0 weight edges between courses with the same id and meeting pattern
-- Search from the end of path, only augment from courses that are not full

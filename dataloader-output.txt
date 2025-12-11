@@ -1,0 +1,7 @@
+courses: 261
+distinct: 121
+ignored: {'CN3652-003', 'MU4310-001', 'MA1000-001', 'MU4100-04', 'MA4522-001', 'MU4130-003', 'MU4120-004', 'MU4110-003'}
+blacklist: 78
+students with request: 211
+good requests: 298
+bad requests: 99

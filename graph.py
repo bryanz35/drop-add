@@ -131,6 +131,7 @@ def find_patch(
             courses[course.id] = cswap
             schedule.toggle(course)
             schedule.toggle(cswap)
+            extra[course] += -1
             extra[cswap] += 1
             return course, cswap
 
