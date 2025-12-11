@@ -1,11 +1,24 @@
 # NCSSM Drop Add 2023-2024
 
+## Project structure
+
+- [objects.py](./objects.py): Course, Schedule, Student, Drop class implementations
+- [dataloader.py](./dataloader.py): loads data and handles edge cases
+- [graph.py](./graph.py): runs algorithm
+- [processed.txt](./processed.txt): outputted schedules
+- [dataloader-output.txt](./dataloader-output.txt): additional request statistics
+- [graph-output.txt](./graph-output.txt): outputted schedule statistics
+
+## Statistics
+
 - Students with requests: 370
 - Students considered: 211
 - Students on blacklist (unreported block conflict): 78
 - Bad requests: 99
+- Students with at least 1 request satisfied: 88.63%
+- Requests satisfied: 241/298
 
-Current edges cases:
+## Current edges cases
 
 - Ignore M block.
 - Ignore requests with no drop and "None of these apply".
